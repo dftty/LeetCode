@@ -6,7 +6,7 @@ using System.Text;
 public class LeetCode_51 : MonoBehaviour {
 
     void Start(){
-        Debug.Log(SolveNQueens(4));
+        Debug.Log(SolveNQueens_(4));
     }
 
     // Hard https://leetcode.com/problems/n-queens/description/

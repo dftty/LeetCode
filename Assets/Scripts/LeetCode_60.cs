@@ -7,7 +7,8 @@ public class LeetCode_60 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Debug.Log("me".Replace('m', 'a'));
+
 	}
 	
 	// Update is called once per frame

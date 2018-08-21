@@ -7,7 +7,8 @@ using System;
 public class LeetCode_72 : MonoBehaviour {
 
     void Start(){
-        
+        char c = '0';
+        c++;
     }
 
     // Hard https://leetcode.com/problems/edit-distance/description/

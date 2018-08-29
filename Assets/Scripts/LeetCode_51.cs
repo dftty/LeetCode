@@ -121,9 +121,9 @@ public class LeetCode_51 : MonoBehaviour {
         }
         
         int col;
+            //iterate through the columns, trying to place the queen in that column at current row
         bool final = false;
         for(col = 0; col<n;col++){
-            //iterate through the columns, trying to place the queen in that column at current row
             bool isSafe = true;
             //iterate through each row until this one, one queen per row
             for(int i = 0;i<row;i++)

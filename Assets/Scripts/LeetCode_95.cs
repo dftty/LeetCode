@@ -53,6 +53,10 @@ public class LeetCode_95 : MonoBehaviour {
                     TreeNode root = new TreeNode(i);
                     root.left = lnode;
                     root.right = rnode;
+                    if(root.left == null && root.right == null){
+
+                    }
+                    
                     list.Add(root);
                 }
             }

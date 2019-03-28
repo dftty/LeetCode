@@ -6,7 +6,7 @@ using System;
 public class ConstructBinarySearchTreefromPreorderTraversal : MonoBehaviour {
 
     void Start(){
-        BstFromPreorder(new int[]{8, 5, 1, 7, 10, 12});
+        BstFromPreorder_(new int[]{8, 5, 1, 7, 10, 12});
     }
 
 
@@ -47,7 +47,7 @@ public class ConstructBinarySearchTreefromPreorderTraversal : MonoBehaviour {
     }
 
     public TreeNode Generate_(int[] preorder, int border){
-        if(i == preorder.Length || border > int.MaxValue) return null;
+        if(i == preorder.Length || preorder[i] > border) return null;
 
         TreeNode root = new TreeNode(preorder[i++]);
 

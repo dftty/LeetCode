@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 697850941}
   - component: {fileID: 697850940}
   - component: {fileID: 697850939}
-  - component: {fileID: 697850943}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -200,17 +199,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -22.099, y: 5.8110003, z: 73.003006}
---- !u!114 &697850943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 697850938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e5b739a31480a14396901157a7166b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1718329301
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +210,7 @@ GameObject:
   - component: {fileID: 1718329305}
   - component: {fileID: 1718329304}
   - component: {fileID: 1718329303}
+  - component: {fileID: 1718329302}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -229,6 +218,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1718329302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1718329301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c945f4b866c6ac64585fcbf925a5403f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!81 &1718329303
 AudioListener:
   m_ObjectHideFlags: 0

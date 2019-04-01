@@ -20,6 +20,8 @@ public class ConstructBinarySearchTreefromPreorderTraversal : MonoBehaviour {
 
     解法来自Discuss
 
+    递归类型题目，目标是找到递归的返回条件
+
     本题目给了一个二叉查找树的前序遍历数组，要求用这个数组构建这个二叉查找树
     这个类型的题目是经典的递归题，
     因为给定的条件是前序遍历，因此第一个数一定是根节点，然后后面的数组中小于这个数的子数组一定是它的左子树，大于这个数的子数组一定是它的右子树。

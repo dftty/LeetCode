@@ -5,3 +5,4 @@
 |1011|[CapacityToShipPackagesWithinDDays.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/CapacityToShipPackagesWithinDDays.cs)|Medium|C#|[Array Binary Search]||
 |1018|[BinaryPrefixDivisibleBy5.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/BinaryPrefixDivisibleBy5.cs)|Easy|C#|[Array]||
 |1019|[NextGreaterNodeInLinkedList.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/NextGreaterNodeInLinkedList.cs)|Medium|C#|[LinkedList Stack]||
+|1020|[NumberofEnclaves.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/NumberofEnclaves.cs)|Medium|C#|[Depth First Search]||

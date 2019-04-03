@@ -55,7 +55,7 @@ public class NumberofEnclaves : MonoBehaviour {
     
 	/**
 	查找方法，当进入该方法时就设置数组值为0
-	 */
+	*/
     public void Check(int[][] A, int i, int j, int m, int n){
         A[i][j] = 0;
         if(i - 1 >= 0 && A[i - 1][j] != 1){

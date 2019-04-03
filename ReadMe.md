@@ -1,5 +1,7 @@
 | Squence | Problem       | Level  | Language  | Tags | Video Tutorial|
 |:-------:|:--------------|:------:|:---------:|:----:|:-------------:|
+|15|[ThreeSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ThreeSum.cs)|Medium|C#|[Array Two Pointers]||
+|16|[ThreeSumClosest.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ThreeSumClosest.cs)|Medium|C#|[Array Two Pointers]||
 |1008|[AddTwoNumbers.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/AddTwoNumbers.cs)|Medium|C#|[LinkedList]||
 |1008|[ConstructBinarySearchTreefromPreorderTraversal.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ConstructBinarySearchTreefromPreorderTraversal.cs)|Medium|C#|[Tree]||
 |1011|[CapacityToShipPackagesWithinDDays.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/CapacityToShipPackagesWithinDDays.cs)|Medium|C#|[Array Binary Search]||

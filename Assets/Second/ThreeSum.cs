@@ -53,4 +53,30 @@ public class ThreeSum : MonoBehaviour {
         
         return result;
     }
+
+    /**
+    更加精简的写法
+     */
+    public IList<IList<int>> ThreeSum_1(int[] nums) {
+        Array.Sort(nums);
+        IList<IList<int>> result = new List<IList<int>>();
+        for(int i = 0; i < nums.Length; i++){
+            if(i > 0 && nums[i] == nums[i - 1]) continue;
+            int lo = i + 1;
+            int hi = nums.Length - 1;
+            while(lo < hi){
+                int sum = nums[lo] + nums[hi];
+                if(nums[i] + sum == 0){
+                    result.Add(new List<int>(){nums[i], nums[lo], nums[hi]});
+                    while(lo < hi && nums[lo] == nums[lo + 1]) lo++;
+                    while(lo < hi && nums[hi] == nums[hi - 1]) hi--;
+                    lo++;
+                    hi--;
+                }else if(nums[i] + sum > 0) hi--;
+                else lo++;
+            }
+        }
+        
+        return result;
+    }
 }

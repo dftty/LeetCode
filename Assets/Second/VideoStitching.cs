@@ -7,7 +7,7 @@ public class VideoStitching : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		VideoStitching_DP(new int[][]{new int[]{0, 2}, new int[]{4, 6}, new int[]{8, 10}, new int[]{1, 9}, new int[]{1, 5}, new int[]{5, 9}}, 10);
 	}
 	
 	// Update is called once per frame

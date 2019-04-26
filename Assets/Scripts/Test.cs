@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
+using System;
 
 public class Test : MonoBehaviour {
 
@@ -36,6 +37,20 @@ public class Test : MonoBehaviour {
         }
         
         return sb.ToString();
+    }
+
+    public int BFS(TreeNode root, int rootMax){
+        if(root == null) return 0;
+        
+        int max = 0;
+        int curMax = rootMax - root.val;
+        int left = BFS(root.left, Math.Max(rootMax, root.val));
+        int right = BFS(root.right, Math.Max(rootMax, root.val));
+        
+        max = Math.Max(curMax, left);
+        max = Math.Max(max, right);
+        
+        return max;
     }
 
 	public IList<bool> CamelMatch(string[] queries, string pattern) {

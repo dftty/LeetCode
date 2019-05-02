@@ -21,6 +21,10 @@
 |57|[InsertInterval.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/InsertInterval.cs)|Hard|C#|[Array Sort]||
 |59|[SpiralMatrixII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SpiralMatrixII.cs)|Medium|C#|[Array]||
 |62|[UniquePaths.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/UniquePaths.cs)|Medium|C#|[DP]||
+|66|[PlusOne.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/PlusOne.cs)|Easy|C#|[Array]||
+|74|[Searcha2DMatrix.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/Searcha2DMatrix.cs)|Medium|C#|[Array Binary Search]||
+|75|[SortColors.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SortColors.cs)|Medium|C#|[Array]||
+|78|[Subsets.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/Subsets.cs)|Medium|C#|[Array BackTracking]||
 |81|[SearchinRotatedSortedArrayII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SearchinRotatedSortedArrayII.cs)|Hard|C#|[Array Binary Search]||
 |1008|[ConstructBinarySearchTreefromPreorderTraversal.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ConstructBinarySearchTreefromPreorderTraversal.cs)|Medium|C#|[Tree]||
 |1011|[CapacityToShipPackagesWithinDDays.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/CapacityToShipPackagesWithinDDays.cs)|Medium|C#|[Array Binary Search]||
@@ -39,3 +43,7 @@
 |1029|[TwoCityScheduling.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/TwoCityScheduling.cs)|Easy|C#|[Greddy]||
 |1030|[MatrixCellsinDistanceOrder.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/MatrixCellsinDistanceOrder.cs)|Easy|C#|[Sort]||
 |1031|[MaximumSumofTwoNonOverlappingSubarrays.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/MaximumSumofTwoNonOverlappingSubarrays.cs)|Mediun|C#|[Array]||
+|1032|[StreamofCharacters.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/StreamofCharacters.cs)|Hard|C#|[Trie]||
+|1034|[ColoringABorder.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ColoringABorder.cs)|Medium|C#|[DFS]||
+|1035|[UncrossedLines.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/UncrossedLines.cs)|Medium|C#|[Dynamic Programming]||
+

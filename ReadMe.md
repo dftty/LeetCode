@@ -21,6 +21,7 @@
 |57|[InsertInterval.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/InsertInterval.cs)|Hard|C#|[Array Sort]||
 |59|[SpiralMatrixII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SpiralMatrixII.cs)|Medium|C#|[Array]||
 |62|[UniquePaths.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/UniquePaths.cs)|Medium|C#|[DP]||
+|64|[MinimumPathSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/MinimumPathSum.cs)|Medium|C#|[DP]||
 |66|[PlusOne.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/PlusOne.cs)|Easy|C#|[Array]||
 |74|[Searcha2DMatrix.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/Searcha2DMatrix.cs)|Medium|C#|[Array Binary Search]||
 |75|[SortColors.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SortColors.cs)|Medium|C#|[Array]||

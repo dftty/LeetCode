@@ -47,4 +47,6 @@
 |1032|[StreamofCharacters.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/StreamofCharacters.cs)|Hard|C#|[Trie]||
 |1034|[ColoringABorder.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ColoringABorder.cs)|Medium|C#|[DFS]||
 |1035|[UncrossedLines.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/UncrossedLines.cs)|Medium|C#|[Dynamic Programming]||
+|1039|[BinarySearchTreetoGreaterSumTree.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/BinarySearchTreetoGreaterSumTree.cs)|Medium|C#|[Tree]||
+|1039|[MinimumScoreTriangulationofPolygon.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/MinimumScoreTriangulationofPolygon.cs)|Medium|C#|[Dynamic Programming]||
 

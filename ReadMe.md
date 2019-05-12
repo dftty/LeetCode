@@ -27,6 +27,8 @@
 |75|[SortColors.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SortColors.cs)|Medium|C#|[Array]||
 |78|[Subsets.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/Subsets.cs)|Medium|C#|[Array BackTracking]||
 |81|[SearchinRotatedSortedArrayII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SearchinRotatedSortedArrayII.cs)|Hard|C#|[Array Binary Search]||
+|84|[LargestRectangleinHistogram.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/LargestRectangleinHistogram.cs)|Hard|C#|[Array Stack]||
+|90|[SubsetsII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SubsetsII.cs)|Medium|C#|[Array Backtacking]||
 |1008|[ConstructBinarySearchTreefromPreorderTraversal.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ConstructBinarySearchTreefromPreorderTraversal.cs)|Medium|C#|[Tree]||
 |1011|[CapacityToShipPackagesWithinDDays.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/CapacityToShipPackagesWithinDDays.cs)|Medium|C#|[Array Binary Search]||
 |1017|[ConverttoBaseNeg2.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ConverttoBaseNeg2.cs)|Medium|C#|[Math]||
@@ -49,4 +51,7 @@
 |1035|[UncrossedLines.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/UncrossedLines.cs)|Medium|C#|[Dynamic Programming]||
 |1039|[BinarySearchTreetoGreaterSumTree.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/BinarySearchTreetoGreaterSumTree.cs)|Medium|C#|[Tree]||
 |1039|[MinimumScoreTriangulationofPolygon.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/MinimumScoreTriangulationofPolygon.cs)|Medium|C#|[Dynamic Programming]||
+|1041|[RobotBoundedInCircle.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/RobotBoundedInCircle.cs)|Easy|C#|[Math]||
+|1042|[FlowerPlantingWithNoAdjacent.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/FlowerPlantingWithNoAdjacent.cs)|Easy|C#|[Greddy]||
+|1043|[PartitionArrayforMaximumSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/PartitionArrayforMaximumSum.cs)|Medium|C#|[Dynamic Programming]||
 

@@ -8,8 +8,8 @@ public class Test : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		RemoveOuterParentheses("(()())(())");
-		//CamelMatch(new string[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"}, "FB");
+		IsRobotBounded("GL");
+		List<int> list = new List<int>();
 	}
 	
 	// Update is called once per frame
@@ -17,41 +17,34 @@ public class Test : MonoBehaviour {
 		
 	}
 
-	public string RemoveOuterParentheses(string S) {
-        Stack<char> stack = new Stack<char>();
-        StringBuilder sb = new StringBuilder();
-		int startIndex = 0;
-		int count = 0;
-        for(int i = 0; i < S.Length; i++){
-			count++;
-			if(stack.Count == 1 && stack.Peek() == '(' && S[i] == ')'){
-				sb.Append(S.Substring(startIndex, count).Substring(1, count - 2));
-				stack.Pop();
-				count = 0;
-				startIndex = i + 1;
-			}else if(stack.Count > 0 && stack.Peek() == '(' && S[i] == ')'){
-				stack.Pop();
-			}else{
-				stack.Push(S[i]);
-			}
+    public bool IsRobotBounded(string instructions) {
+        int[][] dirs = new int[4][]{new int[]{0, 1}, new int[]{-1, 0}, new int[]{0, -1}, new int[]{1, 0}};
+        
+        int curDir = 0;
+        int[] startPosition = new int[2]{0, 0};
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < instructions.Length; j++){
+                if(instructions[j] == 'G'){
+                    startPosition[0] += dirs[curDir][0];
+                    startPosition[1] += dirs[curDir][1];
+                }else if(instructions[j] == 'L'){
+                    curDir += 1;
+                    curDir = curDir % 4;
+                }else{
+                    curDir -= 1;
+                    curDir = curDir < 0 ? 3 : curDir;
+                }
+            }
+            
+            if(startPosition[0] == 0 && startPosition[1] == 0){
+                return true;
+            }
         }
         
-        return sb.ToString();
+        return false;
     }
 
-    public int BFS(TreeNode root, int rootMax){
-        if(root == null) return 0;
-        
-        int max = 0;
-        int curMax = rootMax - root.val;
-        int left = BFS(root.left, Math.Max(rootMax, root.val));
-        int right = BFS(root.right, Math.Max(rootMax, root.val));
-        
-        max = Math.Max(curMax, left);
-        max = Math.Max(max, right);
-        
-        return max;
-    }
+	
 
 	public IList<bool> CamelMatch(string[] queries, string pattern) {
         IList<bool> result = new List<bool>();

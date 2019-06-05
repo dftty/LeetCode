@@ -22,6 +22,7 @@ public class AddTwoNumbers : MonoBehaviour {
 		char c = '1';
 		int temp = c - '0';
 
+		int[][] arr = new int[1][];
 		
 		
 	}

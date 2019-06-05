@@ -54,4 +54,6 @@
 |1041|[RobotBoundedInCircle.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/RobotBoundedInCircle.cs)|Easy|C#|[Math]||
 |1042|[FlowerPlantingWithNoAdjacent.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/FlowerPlantingWithNoAdjacent.cs)|Easy|C#|[Greddy]||
 |1043|[PartitionArrayforMaximumSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/PartitionArrayforMaximumSum.cs)|Medium|C#|[Dynamic Programming]||
-
+|1049|[LastStoneWeightII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/LastStoneWeightII.cs)|Medium|C#|[Dynamic Programming]||
+|1052|[GrumpyBookstoreOwner.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/GrumpyBookstoreOwner.cs)|Medium|C#|[Sliding window]||
+|1072|[BinarySearchTreetoGreaterSumTree.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/BinarySearchTreetoGreaterSumTree.cs)|Medium|C#|[HashTable]||

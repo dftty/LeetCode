@@ -16,6 +16,7 @@ public class BinarySearchTreetoGreaterSumTree : MonoBehaviour {
 
 	int count = 0;
 	/**
+    https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/
 	遍历顺序改成右中左，然后计算val即可
 	 */
     public TreeNode BstToGst(TreeNode root) {

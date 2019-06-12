@@ -61,6 +61,8 @@ public class CamelcaseMatching : MonoBehaviour {
 
 	/**
 	Discuss解法
+    其实只需要记录第一个字符串匹配的长度，然后和pattern比较即可
+    如果匹配字符串比查询字符串长，则不可能匹配
 	 */
 	public IList<bool> CamelMatch_Discuss(string[] queries, string pattern) {
         IList<bool> result = new List<bool>();

@@ -30,6 +30,7 @@
 |84|[LargestRectangleinHistogram.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/LargestRectangleinHistogram.cs)|Hard|C#|[Array Stack]||
 |90|[SubsetsII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SubsetsII.cs)|Medium|C#|[Array Backtacking]||
 |120|[Triangle.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/Triangle.cs)|Medium|C#|[Array Dynamic Programming]||
+|152|[MaximumProductSubarray.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/MaximumProductSubarray.cs)|Medium|C#|[Array Dynamic Programming]||
 |1008|[ConstructBinarySearchTreefromPreorderTraversal.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ConstructBinarySearchTreefromPreorderTraversal.cs)|Medium|C#|[Tree]||
 |1011|[CapacityToShipPackagesWithinDDays.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/CapacityToShipPackagesWithinDDays.cs)|Medium|C#|[Array Binary Search]||
 |1017|[ConverttoBaseNeg2.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ConverttoBaseNeg2.cs)|Medium|C#|[Math]||

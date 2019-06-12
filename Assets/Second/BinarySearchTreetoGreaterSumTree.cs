@@ -20,7 +20,6 @@ public class BinarySearchTreetoGreaterSumTree : MonoBehaviour {
 	 */
     public TreeNode BstToGst(TreeNode root) {
         DFS(root);
-        
         return root;
     }
     

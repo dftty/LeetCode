@@ -6,6 +6,8 @@ using System;
 
 public class Test : MonoBehaviour {
 
+    public GameObject obj;
+
 	// Use this for initialization
 	void Start () {
 		IsRobotBounded("GL");
@@ -14,7 +16,12 @@ public class Test : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Vector3 vector = new Vector3();
+            transform.RotateAround(new Vector3(vector.x + 0.5f, vector.y - 0.5f, vector.z), new Vector3(0, 0, 0.5f), -90);
+            obj.transform.position = new Vector3(vector.x + 0.5f, vector.y - 0.5f, vector.z);
+        }
 	}
 
     public bool IsRobotBounded(string instructions) {

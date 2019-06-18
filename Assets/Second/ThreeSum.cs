@@ -58,6 +58,10 @@ public class ThreeSum : MonoBehaviour {
     更加精简的写法
      */
     public IList<IList<int>> ThreeSum_1(int[] nums) {
+        int[][] temp = new int[2][];
+        Array.Sort(temp, (a, b) => {
+            return a[0] - b[0];
+        });
         Array.Sort(nums);
         IList<IList<int>> result = new List<IList<int>>();
         for(int i = 0; i < nums.Length; i++){

@@ -12,6 +12,12 @@ public class Test : MonoBehaviour {
 	void Start () {
 		IsRobotBounded("GL");
 		List<int> list = new List<int>();
+
+        int[,] temp = new int[2, 2]{{5, 2}, {3, 4}};
+
+        Array.Sort(temp);
+
+        Debug.Log(temp);
 	}
 	
 	// Update is called once per frame

@@ -61,6 +61,14 @@ public class SegmentTree{
 		return getSumUtil(ss, mid, qs, qe, 2 * si + 1) + getSumUtil(mid + 1, se, qs, qe, 2 * si + 2);
 	}
 
+	public int getSum(int n, int qs, int qe){
+		if(qs < 0 || qe > n - 1 || qs > qe){
+			return 0;
+		}
+
+		return getSumUtil(0, n - 1, qs, qe, 0);
+	}
+
 	void updateValueUtil(int ss, int se, int i, int diff, int si){
 		if(i < ss || i > se){
 			return ;

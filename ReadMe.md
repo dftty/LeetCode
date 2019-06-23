@@ -1,6 +1,7 @@
 | Squence | Problem       | Level  | Language  | Tags | Video Tutorial|
 |:-------:|:--------------|:------:|:---------:|:----:|:-------------:|
 |2|[AddTwoNumbers.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/AddTwoNumbers.cs)|Medium|C#|[LinkedList]||
+|5|[LongestPalindromicSubstring.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/LongestPalindromicSubstring.cs)|Medium|C#|[string DP]||
 |15|[ThreeSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ThreeSum.cs)|Medium|C#|[Array Two Pointers]||
 |16|[ThreeSumClosest.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ThreeSumClosest.cs)|Medium|C#|[Array Two Pointers]||
 |18|[FourSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/FourSum.cs)|Medium|C#|[Array Two Pointers]||

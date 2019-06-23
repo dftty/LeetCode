@@ -50,4 +50,31 @@ public class LongestPalindromicSubstring : MonoBehaviour
             max = k - j - 1;
         }
     }
+
+
+    /**
+    动态规划解法，dp[i][j] 代表从i到j的子字符串是否是回文
+     */
+    public string LongestPalindrome_DP(string s) {
+        if(s.Length == 1) return s;
+        int n = s.Length;
+        bool[][] dp = new bool[n][];
+        int start = 0;
+        int len = 0;
+        for(int i = n - 1; i >= 0; i--){
+            if(dp[i] == null){
+                dp[i] = new bool[n];
+            }
+            
+            for(int j = i; j < n; j++){
+                dp[i][j] = s[i] == s[j] && ((j - i < 2) || dp[i + 1][j - 1]);
+                if(dp[i][j] &&j - i + 1 > len){
+                    len = j - i + 1;
+                    start = i;
+                }
+            }
+        }
+        
+        return s.Substring(start, len);
+    }
 }

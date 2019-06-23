@@ -8,6 +8,8 @@ public class PartitionArrayforMaximumSum : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		MaxSumAfterPartitioning(new int[]{1,15,7,9,2,5,10}, 3);
+		char[,] temp = new char[1, 1];
+		Debug.Log(temp[0, 0] == '\0');
 	}
 	
 	// Update is called once per frame

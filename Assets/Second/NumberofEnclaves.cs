@@ -6,7 +6,8 @@ public class NumberofEnclaves : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		List<int> list = new List<int>();
+        
 	}
 	
 	// Update is called once per frame

@@ -73,6 +73,10 @@ public class CarPooling : MonoBehaviour
             events.Add(new int[]{trips[i][2], -trips[i][0]});
         }
 
+        int[][] arrays = events.ToArray();
+
+        Array.Sort(arrays);
+
         events.Sort((a, b) =>{
             int first = a[0] - b[0];
             if(first != 0){

@@ -15,9 +15,9 @@ public class Test : MonoBehaviour {
 
         int[,] temp = new int[2, 2]{{5, 2}, {3, 4}};
 
-        Array.Sort(temp);
-
         Debug.Log(temp);
+
+        Debug.Log(int.MinValue);
 	}
 	
 	// Update is called once per frame

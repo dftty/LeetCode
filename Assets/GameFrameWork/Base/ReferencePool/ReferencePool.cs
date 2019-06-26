@@ -3,8 +3,208 @@ using System.Collections.Generic;
 
 namespace GameFramework
 {
+    /// <summary>
+    /// 引用池
+    /// </summary>
     public static partial class ReferencePool
     {
-        
+        private static readonly IDictionary<string, ReferenceCollection> s_ReferenceCollections = new Dictionary<string, ReferenceCollection>();
+
+        /// <summary>
+        /// 获取引用池的数量
+        /// </summary>
+        /// <value></value>
+        public static int Count
+        {
+            get
+            {
+                return s_ReferenceCollections.Count;
+            }
+        }
+
+        /// <summary>
+        /// 获取所有引用池信息
+        /// </summary>
+        /// <returns></returns>
+        public static ReferencePoolInfo[] GetAllReferencePoolInfos()
+        {
+            int index = 0;
+            ReferencePoolInfo[] results = null;
+
+            lock(s_ReferenceCollections)
+            {
+                results = new ReferencePoolInfo[s_ReferenceCollections.Count];
+                foreach(KeyValuePair<string, ReferenceCollection> referenceCollection in s_ReferenceCollections)
+                {
+                    results[index++] = new ReferencePoolInfo(referenceCollection.Key, referenceCollection.Value.UnusedReferenceType, referenceCollection.Value.UsingReferenceCount, 
+                        referenceCollection.Value.AcquireReferenceCount, referenceCollection.Value.ReleaseReferenceCount, referenceCollection.Value.AddReferenceCount, referenceCollection.Value.RemoveReferenceCount);
+                }
+            }
+
+            return results;
+        }
+
+        /// <summary>
+        /// 清除所有引用池
+        /// </summary>
+        public static void ClearAll()
+        {
+            lock(s_ReferenceCollections)
+            {
+                foreach(KeyValuePair<string, ReferenceCollection> referenceCollection in s_ReferenceCollections)
+                {
+                    referenceCollection.Value.RemoveAll();
+                }
+
+                s_ReferenceCollections.Clear();
+            }
+        }
+
+        /// <summary>
+        /// 从引用池获取引用
+        /// </summary>
+        /// <typeparam name="T">引用类型</typeparam>
+        public static T Acquire<T>() where T : class, IReference, new()
+        {
+            return GetReferenceCollection(typeof(T)).Acquire<T>();
+        }
+
+        /// <summary>
+        /// 从引用池获取引用
+        /// </summary>
+        /// <param name="referenceType">引用类型</param>
+        /// <returns></returns>
+        public static IReference Acquire(Type referenceType)
+        {
+            InternalCheckReferenceType(referenceType);
+            return GetReferenceCollection(referenceType).Acquire();
+        }
+
+        /// <summary>
+        /// 将引用归还引用池
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void Release<T>(T reference) where T : class, IReference
+        {
+            if(reference == null)
+            {
+                throw new GameFrameworkException("Reference is invalid");
+            }
+
+            GetReferenceCollection(typeof(T)).Release(reference);
+        }
+
+        /// <summary>
+        /// 将引用归还引用池
+        /// </summary>
+        /// <param name="reference"></param>
+        public static void Release(IReference reference)
+        {
+            if(reference == null)
+            {
+                throw new GameFrameworkException("Reference is invalid");
+            }
+
+            Type referenceType = reference.GetType();
+            InternalCheckReferenceType(referenceType);
+            GetReferenceCollection(referenceType).Release(reference);
+        }
+
+        /// <summary>
+        /// 向引用池中添加指定数量的引用
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void Add<T>(int count) where T : class, IReference, new()
+        {
+            GetReferenceCollection(typeof(T)).Add(count);
+        }
+
+        /// <summary>
+        /// 向引用池中追加指定数量的引用
+        /// </summary>
+        /// <param name="referenceType"></param>
+        /// <param name="count"></param>
+        public static void Add(Type referenceType, int count)
+        {
+            InternalCheckReferenceType(referenceType);
+            GetReferenceCollection(referenceType).Add(count);
+        }
+
+        /// <summary>
+        /// 从引用池中移除指定数量的引用
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void Remove<T>(int count) where T : class, IReference
+        {
+            GetReferenceCollection(typeof(T)).Remove(count);
+        }
+
+        /// <summary>
+        /// 从引用池中移除指定数量的引用
+        /// </summary>
+        /// <param name="referenceType"></param>
+        /// <param name="count"></param>
+        public static void Remove(Type referenceType, int count)
+        {
+            InternalCheckReferenceType(referenceType);
+            GetReferenceCollection(referenceType).Remove(count);
+        }
+
+        /// <summary>
+        /// 从引用池中移除所有的引用
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public static void RemoveAll<T>() where T : class, IReference
+        {
+            GetReferenceCollection(typeof(T)).RemoveAll();
+        }
+
+        /// <summary>
+        /// 从引用池中移除所有的引用
+        /// </summary>
+        /// <param name="referenceType"></param>
+        public static void RemoveAll(Type referenceType)
+        {
+            InternalCheckReferenceType(referenceType);
+            GetReferenceCollection(referenceType).RemoveAll();
+        }
+
+        public static void InternalCheckReferenceType(Type referenceType)
+        {
+            if(referenceType == null)
+            {
+                throw new GameFrameworkException("Reference type is invalid.");
+            }
+
+            if(!referenceType.IsClass || referenceType.IsAbstract)
+            {
+                throw new GameFrameworkException("Reference type is not a non-abstract class type.");
+            }
+
+            if(!typeof(IReference).IsAssignableFrom(referenceType))
+            {
+                // TODO Utility
+                //throw new GameFrameworkException()
+            }
+        }
+
+        private static ReferenceCollection GetReferenceCollection(Type referenceType)
+        {
+            if(referenceType == null)
+            {
+                throw new GameFrameworkException("ReferenceType is invalid.");
+            }
+
+            string fullName = referenceType.FullName;
+            ReferenceCollection referenceCollection = null;
+            lock(s_ReferenceCollections){
+                if(!s_ReferenceCollections.TryGetValue(fullName, out referenceCollection)){
+                    referenceCollection = new ReferenceCollection(referenceType);
+                    s_ReferenceCollections.Add(fullName, referenceCollection);
+                }
+            }
+
+            return referenceCollection;
+        }
     }
 }

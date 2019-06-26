@@ -5,7 +5,7 @@ namespace GameFramework
 {
     public static partial class ReferencePool
     {
-        private sealed class ReferencePoolCollection
+        private sealed class ReferenceCollection
         {
             private readonly Queue<IReference> m_Reference;
             private readonly Type m_ReferenceType;
@@ -15,7 +15,7 @@ namespace GameFramework
             private int m_AddReferenceCount;
             private int m_RemoveReferenceCount;
 
-            public ReferencePoolCollection(Type referenceType)
+            public ReferenceCollection(Type referenceType)
             {
                 m_Reference = new Queue<IReference>();
                 m_ReferenceType = referenceType;

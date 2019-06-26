@@ -86,10 +86,91 @@ namespace GameFramework
             {
                 if(typeof(T) != m_ReferenceType)
                 {
-                    
+                    throw new GameFrameworkException("Type is invalid");
                 }
 
-                return null;
+                m_UsingReferenceCount++;
+                m_AcquireReferenceCount++;
+
+                lock(m_Reference)
+                {
+                    if(m_Reference.Count > 0)
+                    {
+                        return (T)m_Reference.Dequeue();
+                    }
+                }
+
+                m_AddReferenceCount++;
+                return new T();
+            }
+
+            public IReference Acquire()
+            {
+                m_UsingReferenceCount++;
+                m_AcquireReferenceCount++;
+                lock(m_Reference)
+                {
+                    if(m_Reference.Count > 0)
+                    {
+                        return m_Reference.Dequeue();
+                    }
+                }
+
+                m_AddReferenceCount++;
+                return (IReference)Activator.CreateInstance(m_ReferenceType);
+            }
+
+            public void Release(IReference reference)
+            {
+                reference.Clear();
+                lock(m_Reference)
+                {
+                    if(m_Reference.Contains(reference))
+                    {
+                        throw new GameFrameworkException("The reference has been released.");
+                    }
+
+                    m_Reference.Enqueue(reference);
+                }
+
+                m_ReleaseReferenceCount++;
+                m_UsingReferenceCount--;
+            }
+
+            public void Add(int count)
+            {
+                lock(m_Reference)
+                {
+                    while(count-- > 0){
+                        m_Reference.Enqueue((IReference)Activator.CreateInstance(m_ReferenceType));
+                    }
+                }
+            }
+
+            public void Remove(int count)
+            {
+                lock(m_Reference)
+                {
+                    if(count > m_Reference.Count)
+                    {
+                        count = m_Reference.Count;
+                    }
+
+                    m_RemoveReferenceCount += count;
+                    while(count-- > 0)
+                    {
+                        m_Reference.Dequeue();
+                    }
+                }
+            }
+
+            public void RemoveAll()
+            {
+                lock(m_Reference)
+                {
+                    m_RemoveReferenceCount += m_Reference.Count;
+                    m_Reference.Clear();
+                }
             }
 
         }

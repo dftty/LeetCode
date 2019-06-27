@@ -8,6 +8,25 @@ public class Test : MonoBehaviour {
 
     public GameObject obj;
 
+    public delegate T HandleTest<out T>();
+
+    /// <summary>
+    /// 代理和事件
+    /// </summary>
+    private event HandleTest<int> handle;
+
+    public event HandleTest<int> Handle
+    {
+        add
+        {
+            handle += value;
+        }
+        remove
+        {
+            handle -= value;
+        }
+    }
+
 	// Use this for initialization
 	void Start () {
 		IsRobotBounded("GL");
@@ -18,6 +37,8 @@ public class Test : MonoBehaviour {
         Debug.Log(temp);
 
         Debug.Log(int.MinValue);
+
+        handle += GetInt;
 	}
 	
 	// Update is called once per frame
@@ -29,6 +50,11 @@ public class Test : MonoBehaviour {
             obj.transform.position = new Vector3(vector.x + 0.5f, vector.y - 0.5f, vector.z);
         }
 	}
+
+    public int GetInt()
+    {
+        return 0;
+    }
 
     public bool IsRobotBounded(string instructions) {
         int[][] dirs = new int[4][]{new int[]{0, 1}, new int[]{-1, 0}, new int[]{0, -1}, new int[]{1, 0}};

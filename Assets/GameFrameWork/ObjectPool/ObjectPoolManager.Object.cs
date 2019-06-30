@@ -2,7 +2,7 @@ using System;
 
 namespace GameFramework.ObjectPool
 {
-    internal sealed partial class ObjectPoolManager
+    internal sealed partial class ObjectPoolManager : GameFrameWorkModule, IObjectPoolManager
     {
         /// <summary>
         /// 内部对象

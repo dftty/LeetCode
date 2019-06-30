@@ -157,7 +157,7 @@ namespace GameFramework.ObjectPool
         /// <param name="name"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        IObjectPool<T> CreateSingleSpawnOBjectPool<T>(string name) where T : ObjectBase;
+        IObjectPool<T> CreateSingleSpawnObjectPool<T>(string name) where T : ObjectBase;
 
         /// <summary>
         /// 创建允许单次获取的对象池
@@ -243,7 +243,7 @@ namespace GameFramework.ObjectPool
         /// <param name="priority"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        IObjectPool<T> CrtateSingleSpawnObjectPool<T>(int capacity, int priority) where T : ObjectBase;
+        IObjectPool<T> CreateSingleSpawnObjectPool<T>(int capacity, int priority) where T : ObjectBase;
 
         /// <summary>
         /// 创建允许单次获取的对象池

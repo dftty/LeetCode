@@ -6,8 +6,6 @@ public class Pair{
 	public int y;
 
 	public Pair(){
-		String str = "";
-		
 	}
 
 	public Pair(int x, int y){

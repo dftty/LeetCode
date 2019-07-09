@@ -36,6 +36,22 @@ namespace GameFramework.Resources
         private byte[] m_UpdateFileCache;
         private Stream m_DecompressCache;
 
+        public int UpdateFileCacheLength
+        {
+            get
+            {
+                return m_UpdateFileCache != null ? m_UpdateFileCache.Length : 0;
+            }
+            set
+            {
+                if(m_UpdateFileCache != null && m_UpdateFileCache.Length == value)
+                {
+                    return;
+                }
+                m_UpdateFileCache = new byte[value];
+            }
+        }
+
         private string GetEncryptedString(BinaryReader binaryReader, byte[] encryptBytes)
         {
             int length = binaryReader.ReadByte();

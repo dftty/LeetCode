@@ -1,6 +1,6 @@
 namespace GameFramework.Download
 {
-    internal sealed partial class DownloadManager
+    internal sealed partial class DownloadManager : GameFrameWorkModule, IDownloadManager
     {
         private sealed class DownloadTask : ITask
         {

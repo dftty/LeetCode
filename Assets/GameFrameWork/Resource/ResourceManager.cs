@@ -70,5 +70,42 @@ namespace GameFramework.Resources
             return Utility.Converter.GetString(m_CachedBytesForEncryptedString, 0, length);
         }
 
+        private AssetInfo? GetAssetInfo(string assetName)
+        {
+            if(string.IsNullOrEmpty(assetName))
+            {
+                throw new GameFrameworkException("Asset name is invalid.");
+            }
+
+            if(m_AssetInfos == null)
+            {
+                return null;
+            }
+
+            AssetInfo assetInfo = default(AssetInfo);
+            if(m_AssetInfos.TryGetValue(assetName, out assetInfo))
+            {
+                return assetInfo;
+            }
+
+            return null;
+        }
+
+        private ResourceInfo? GetResourceInfo(ResourceName resourceName)
+        {
+            if(m_ResourceInfos == null)
+            {
+                return null;
+            }
+
+            ResourceInfo resourceInfo = default(ResourceInfo);
+            if(m_ResourceInfos.TryGetValue(resourceName, out resourceInfo))
+            {
+                return resourceInfo;
+            }
+
+            return null;
+        }
+
     }
 }

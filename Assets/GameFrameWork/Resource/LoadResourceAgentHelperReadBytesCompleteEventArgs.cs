@@ -14,14 +14,15 @@ namespace GameFramework.Resources
         /// <param name="loadType"></param>
         public LoadResourceAgentHelperReadBytesCompleteEventArgs(byte[] bytes, int loadType)
         {
-
+            m_Bytes = bytes;
+            LoadType = loadType;
         }
 
         /// <summary>
         /// 获取资源的加载方式
         /// </summary>
         /// <value></value>
-        public int loadType
+        public int LoadType
         {
             get;
             private set;

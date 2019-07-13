@@ -38,4 +38,23 @@ public class LongestValidParentheses : MonoBehaviour
         
         return res;
     }
+
+    /**
+    动态规划解法
+    
+     */
+    public int LongestValidParentheses_Discuss(string s) {
+        int[] dp = new int[s.Length];
+        
+        int res = 0;
+        for(int i = 1; i < s.Length; i++){
+            // 这里寻找和当前右括号相匹配的左括号的位置
+            if(s[i] == ')' && i - dp[i - 1] - 1 >= 0 && s[i - dp[i - 1] - 1] == '('){
+                dp[i] = dp[i - 1] + 2 + (i - dp[i - 1] - 2 >= 0 ? dp[i - dp[i - 1] - 2] : 0);
+                res = Math.Max(res, dp[i]);
+            }
+        }
+        
+        return res;
+    }
 }

@@ -23,6 +23,11 @@ namespace GameFramework.Resources
         event EventHandler<LoadResourceAgentHelperReadBytesCompleteEventArgs> LoadResourceAgentHelperReadBytesComplete;
 
         /// <summary>
+        /// 加载资源代理辅助器异步将资源二进制流转换为加载对象完成事件
+        /// </summary>
+        event EventHandler<LoadResourceAgentHelperParseBytesCompleteEventArgs> LoadResourceAgentHelperParseBytesComplete;
+
+        /// <summary>
         /// 加载资源代理辅助器异步加载资源完成事件
         /// </summary>
         event EventHandler<LoadResourceAgentHelperLoadCompleteEventArgs> LoadResourceAgentHelperLoadComplete;

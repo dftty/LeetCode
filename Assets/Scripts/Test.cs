@@ -27,11 +27,13 @@ public class Test : MonoBehaviour {
         }
     }
 
+
+
 	// Use this for initialization
 	void Start () {
 		IsRobotBounded("GL");
 		List<int> list = new List<int>();
-
+        
         
 
         int[,] temp = new int[2, 2]{{5, 2}, {3, 4}};
@@ -49,7 +51,7 @@ public class Test : MonoBehaviour {
         {
             Vector3 vector = new Vector3();
             transform.RotateAround(new Vector3(vector.x + 0.5f, vector.y - 0.5f, vector.z), new Vector3(0, 0, 0.5f), -90);
-            obj.transform.position = new Vector3(vector.x + 0.5f, vector.y - 0.5f, vector.z);
+            //obj.transform.position = new Vector3(vector.x + 0.5f, vector.y - 0.5f, vector.z);
         }
 	}
 

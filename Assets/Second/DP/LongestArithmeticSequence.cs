@@ -17,7 +17,7 @@ public class LongestArithmeticSequence : MonoBehaviour {
 
 	/**
 	Longest Arithmetic Sequence
-
+`	https://leetcode.com/problems/longest-arithmetic-sequence/
 	动态规划 Disscuss solution
 	 */
 	public int LongestArithSeqLength(int[] A) {

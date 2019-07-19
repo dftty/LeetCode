@@ -79,4 +79,36 @@ public class ZigZagConversion : MonoBehaviour
         
         return sb.ToString();
     }
+
+    public string Convert_(string s, int numRows)
+    {
+        if (numRows == 1)
+        {
+            return s;
+        }
+
+        int index = 0;
+        char[] res = new char[s.Length];
+        for (int i = 0; i < numRows; i++)
+        {
+            for (int j = 0, k = i; k < s.Length; j++)
+            {
+                res[index++] = s[k];
+                if (i == 0 || i == numRows - 1)
+                {
+                    k += 2 * (numRows - 1);
+                }
+                else if (j % 2 == 0)
+                {
+                    k += 2 * (numRows - 1 - i);
+                }
+                else
+                {
+                    k += 2 * i;
+                }
+            }
+        }
+
+        return new string(res);
+    }
 }

@@ -18,7 +18,7 @@ public class StringtoInteger : MonoBehaviour
 
     /**
     https://leetcode.com/problems/string-to-integer-atoi/
-    
+    这是discuss中的解法
      */
     public int MyAtoi(string str) {
         if(str == null || str.Length == 0) return 0;

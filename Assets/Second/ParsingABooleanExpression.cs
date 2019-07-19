@@ -16,6 +16,11 @@ public class ParsingABooleanExpression : MonoBehaviour
         
     }
 
+    /**
+    https://leetcode.com/problems/parsing-a-boolean-expression/
+
+    表达式判断，利用stack来求解
+     */
     public bool ParseBoolExpr(string s) {
         Stack<char> stack = new Stack<char>();
         
@@ -25,11 +30,10 @@ public class ParsingABooleanExpression : MonoBehaviour
                 i++;
                 continue;
             }
-            
             if(s[i] == ')'){
                 bool hasT = false;
                 bool hasF = false;
-                while(stack.Peek() != '|' || stack.Peek() != '&' || stack.Peek() != '!'){
+                while(stack.Count > 0 && stack.Peek() != '|' && stack.Peek() != '&' && stack.Peek() != '!'){
                     char ch = stack.Pop();
                     if(ch == 't'){
                         hasT = true;
@@ -43,10 +47,17 @@ public class ParsingABooleanExpression : MonoBehaviour
                 }else if(c == '&'){
                     stack.Push(hasF ? 'f' : 't');
                 }else {
-                    
+                    stack.Push(hasT ? 'f' : 't');
                 }
+            }else if(s[i] == 't' || s[i] == 'f'){
+                stack.Push(s[i]);
             }
         }
-        return false;
+
+        while(stack.Count > 1){
+            stack.Pop();
+        }
+
+        return stack.Pop() == 't';
     }
 }

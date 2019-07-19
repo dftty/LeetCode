@@ -1,13 +1,16 @@
 | Squence | Problem       | Level  | Language  | Tags | Video Tutorial|
 |:-------:|:--------------|:------:|:---------:|:----:|:-------------:|
 |2|[AddTwoNumbers.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/AddTwoNumbers.cs)|Medium|C#|[LinkedList]||
+|3|[LongestSubstringWithoutRepeatingCharacters.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/LongestSubstringWithoutRepeatingCharacters.cs)|Medium|C#|[Sliding window]||
 |5|[LongestPalindromicSubstring.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/LongestPalindromicSubstring.cs)|Medium|C#|[string DP]||
+|6|[ZigZagConversion.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ZigZagConversion.cs)|Medium|C#|[string]||
+|8|[StringtoInteger.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/StringtoInteger.cs)|Medium|C#|[string]||
 |15|[ThreeSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ThreeSum.cs)|Medium|C#|[Array Two Pointers]||
 |16|[ThreeSumClosest.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ThreeSumClosest.cs)|Medium|C#|[Array Two Pointers]||
 |18|[FourSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/FourSum.cs)|Medium|C#|[Array Two Pointers]||
 |33|[NextPermutation.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/NextPermutation.cs)|Medium|C#|[Array]||
 |33|[SearchinRotatedSortedArray.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SearchinRotatedSortedArray.cs)|Medium|C#|[Array Binary Search]||
-|34|[FindFirstandLastPositionofElementinSortedArray.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/FindFirstandLastPositionofElementinSortedArray.cs)|Medium|C#|[Array Binary Search]||
+|34|[FindFirstand`L`astPositionofElementinSortedArray.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/FindFirstandLastPositionofElementinSortedArray.cs)|Medium|C#|[Array Binary Search]||
 |35|[SearchInsertPosition.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SearchInsertPosition.cs)|Easy|C#|[Binary Search]||
 |39|[CombinationSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/CombinationSum.cs)|Medium|C#|[BackTracking]||
 |40|[CombinationSumII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/CombinationSumII.cs)|Medium|C#|[BackTracking]||
@@ -29,7 +32,9 @@
 |78|[Subsets.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/Subsets.cs)|Medium|C#|[Array BackTracking]||
 |81|[SearchinRotatedSortedArrayII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SearchinRotatedSortedArrayII.cs)|Hard|C#|[Array Binary Search]||
 |84|[LargestRectangleinHistogram.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/LargestRectangleinHistogram.cs)|Hard|C#|[Array Stack]||
+|87|[ScrambleString.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ScrambleString.cs)|Hard|C#|[String]||
 |90|[SubsetsII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/SubsetsII.cs)|Medium|C#|[Array Backtacking]||
+|93|[RestoreIPAddresses.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/RestoreIPAddresses.cs)|Medium|C#|[Backtacking]||
 |120|[Triangle.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/Triangle.cs)|Medium|C#|[Array Dynamic Programming]||
 |152|[MaximumProductSubarray.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/MaximumProductSubarray.cs)|Medium|C#|[Array Dynamic Programming]||
 |1008|[ConstructBinarySearchTreefromPreorderTraversal.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ConstructBinarySearchTreefromPreorderTraversal.cs)|Medium|C#|[Tree]||
@@ -61,4 +66,5 @@
 |1052|[GrumpyBookstoreOwner.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/GrumpyBookstoreOwner.cs)|Medium|C#|[Sliding window]||
 |1072|[BinarySearchTreetoGreaterSumTree.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/BinarySearchTreetoGreaterSumTree.cs)|Medium|C#|[HashTable]||
 |1091|[ShortestPathinBinaryMatrix.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/ShortestPathinBinaryMatrix.cs)|Medium|C#|[BFS]||
+|1124|[LongestWellPerformingInterval.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Second/LongestWellPerformingInterval.cs)|Medium|C#|[Stack]||
 

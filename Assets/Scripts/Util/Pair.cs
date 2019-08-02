@@ -1,12 +1,10 @@
 ﻿using System;
 
-public class Pair{
+public struct Pair{
 
 	public int x;
 	public int y;
 
-	public Pair(){
-	}
 
 	public Pair(int x, int y){
 		this.x = x;
@@ -17,3 +15,5 @@ public class Pair{
 		return x << 7 + y;
 	}
 }
+
+

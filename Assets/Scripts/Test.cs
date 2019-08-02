@@ -33,8 +33,6 @@ public class Test : MonoBehaviour {
 	void Start () {
 		IsRobotBounded("GL");
 		List<int> list = new List<int>();
-        
-        
 
         int[,] temp = new int[2, 2]{{5, 2}, {3, 4}};
 
@@ -43,6 +41,17 @@ public class Test : MonoBehaviour {
         Debug.Log(int.MinValue);
 
         handle += GetInt;
+
+        Pair pair = new Pair(1, 1);
+        Dictionary<Pair, int> dic = new Dictionary<Pair, int>();
+        dic.Add(pair, 0);
+
+        Debug.Log(dic.ContainsKey(new Pair(1, 1)));
+
+        // KeyValuePair<int, int> pair = new KeyValuePair<int, int>(1, 1);
+        // Dictionary<KeyValuePair<int, int>, int> dic = new Dictionary<KeyValuePair<int, int>, int>();
+        // dic.Add(pair, 0);
+        // Debug.Log(dic.ContainsKey(new KeyValuePair<int, int>(1, 1)));
 	}
 	
 	// Update is called once per frame

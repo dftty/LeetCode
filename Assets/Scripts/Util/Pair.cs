@@ -15,3 +15,5 @@ public struct Pair{
 		return x << 7 + y;
 	}
 }
+
+

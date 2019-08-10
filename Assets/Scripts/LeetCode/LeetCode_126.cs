@@ -13,6 +13,8 @@ public class LeetCode_126 : MonoBehaviour {
     // Hard https://leetcode.com/problems/word-ladder-ii/description/
     // 2018/8/7
     // use bfs
+    // 2019/7/29 更新
+    // 该方法会导致TLE，因此已弃用
     public IList<IList<string>> FindLadders(string beginWord, string endWord, IList<string> wordList) {
         HashSet<string> wordSet = new HashSet<string>();
         for(int i = 0;  i< wordList.Count; i++){

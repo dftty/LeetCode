@@ -57,4 +57,32 @@ public class ReverseLinkedListII : MonoBehaviour
         
         return res.next;
     }
+
+
+    /**
+    Discuss 解法，只用了四个ListNode指针
+     */
+    public ListNode ReverseBetween_(ListNode head, int m, int n) {
+        ListNode res =  new ListNode(0);
+        res.next = head;
+        
+        ListNode pre = res;
+        for (int i = 0; i < m - 1; i++)
+        {
+            pre = pre.next;    
+        }
+        
+        ListNode start = pre.next;
+        ListNode then = start.next;
+        
+        for (int i = 0; i < n - m; i++)
+        {
+            start.next = then.next;
+            then.next = pre.next;
+            pre.next = then;
+            then = start.next;
+        }
+        
+        return res.next;
+    }
 }

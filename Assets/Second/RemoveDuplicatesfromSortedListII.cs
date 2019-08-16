@@ -47,8 +47,6 @@ public class RemoveDuplicatesfromSortedListII : MonoBehaviour
             }else{
                 first = node;
             }
-            
-            
         }
         
         return res.next;

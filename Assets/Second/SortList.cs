@@ -19,7 +19,7 @@ public class SortList : MonoBehaviour
     /**
     https://leetcode.com/problems/sort-list/
 
-    归并排序解法
+    归并排序解法 需要O(lgn)空间
      */
     public ListNode SortList_Discuss(ListNode head) {
         if(head == null || head.next == null){
@@ -69,5 +69,74 @@ public class SortList : MonoBehaviour
         }
         
         return res.next;
+    }
+
+    /**
+    O(1)空间解法，使用自底向上归并排序
+     */
+    public ListNode SortList_Dis(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        
+        int length = 0;
+        ListNode node = head;
+        while(node != null){
+            length++;
+            node = node.next;
+        }
+        
+        node = new ListNode(int.MinValue);
+        node.next = head;
+        ListNode left, right, tail;
+        
+        for (int step = 1; step < length; step <<= 1){
+            ListNode cur = node.next;
+            tail = node;
+            
+            while (cur != null){
+                left = cur;
+                right = split(left, step);
+                cur = split(right, step);
+                tail = merge(left, right, tail);
+            }
+        }
+        
+        return node.next;
+    }
+    
+    ListNode split(ListNode head, int n){
+        for (int i = 1; i < n && head != null; i++){
+            head = head.next;
+        }
+        
+        if (head == null){
+            return null;
+        }
+        
+        ListNode res = head.next;
+        head.next = null;
+        return res;
+    }
+    
+    ListNode merge(ListNode l1, ListNode l2, ListNode head){
+        ListNode cur = head;
+        while (l1 != null && l2 != null){
+            if (l1.val > l2.val){
+                cur.next = l2;
+                l2 = l2.next;
+            }else{
+                cur.next = l1;
+                l1 = l1.next;
+            }
+            cur = cur.next;
+        }
+        
+        cur.next = l1 == null ? l2 : l1;
+        while(cur.next != null){
+            cur = cur.next;
+        }
+        
+        return cur;
     }
 }

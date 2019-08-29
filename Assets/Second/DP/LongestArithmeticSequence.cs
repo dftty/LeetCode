@@ -19,6 +19,9 @@ public class LongestArithmeticSequence : MonoBehaviour {
 	Longest Arithmetic Sequence
 `	https://leetcode.com/problems/longest-arithmetic-sequence/
 	动态规划 Disscuss solution
+
+	dp[diff][index] 代表数组在下标index处算数序列公差为diff 的长度
+	这里算数序列公差有可能很大，所以不能使用一个定长的二维数组来保存结果，所以使用字典来保存
 	 */
 	public int LongestArithSeqLength(int[] A) {
         Dictionary<int, Dictionary<int, int>> dp = new Dictionary<int, Dictionary<int, int>>();

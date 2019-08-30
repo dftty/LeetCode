@@ -47,7 +47,9 @@ public class Test : MonoBehaviour {
         dic.Add(pair, 0);
 
         Debug.Log(dic.ContainsKey(new Pair(1, 1)));
-
+        int v = 0;
+        char ch = (char)0x00;
+        v |= ch;
         // KeyValuePair<int, int> pair = new KeyValuePair<int, int>(1, 1);
         // Dictionary<KeyValuePair<int, int>, int> dic = new Dictionary<KeyValuePair<int, int>, int>();
         // dic.Add(pair, 0);

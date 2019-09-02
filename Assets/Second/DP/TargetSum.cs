@@ -55,7 +55,8 @@ public class TargetSum : MonoBehaviour
     }
 
     /**
-    
+    动态规划解法： 
+    https://leetcode.com/problems/target-sum/discuss/97334/Java-(15-ms)-C%2B%2B-(3-ms)-O(ns)-iterative-DP-solution-using-subset-sum-with-explanation
      */
     public int FindTargetSumWays_Discuss(int[] nums, int S) {
         int sum = 0;

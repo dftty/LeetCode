@@ -48,7 +48,8 @@ public class MinimumSizeSubarraySum : MonoBehaviour
 
 
     /**
-    第二种解法，首先计算出这个数组的前缀和，前缀和数组前面额外添加一位值为0
+    第二种解法，首先计算出这个数组的前缀和，前缀和数组前面额外添加一位值为0,因为数组中的数字都是正数，
+    那么前缀和数组就是一个有序数组，可以使用二分查找
     然后遍历前缀数组，寻找小于等于presSum[i] - s 的下标
      */
     public int MinSubArrayLen_(int s, int[] nums) {

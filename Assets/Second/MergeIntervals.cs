@@ -17,7 +17,7 @@ public class MergeIntervals : MonoBehaviour {
 
 	/**
 	Merge Intervals
-	对数组使用第一个数组排序，然后遍历判断和当前List中最后一个元素是否重叠根据重叠与否
+	对数组使用第一个数排序，然后遍历判断和当前List中最后一个元素是否重叠根据重叠与否
     添加或更新List数据
 	 */
 	public int[][] Merge(int[][] intervals) {

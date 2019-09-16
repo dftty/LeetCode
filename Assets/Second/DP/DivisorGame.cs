@@ -15,6 +15,7 @@ public class DivisorGame : MonoBehaviour {
 	}
 
 	/**
+	https://leetcode.com/problems/divisor-game/
 	Divisor Game
 	动态规划 Disscuss solution
 	 */

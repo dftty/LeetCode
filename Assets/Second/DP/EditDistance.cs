@@ -22,6 +22,9 @@ public class EditDistance : MonoBehaviour
 
     动态规划题目
     题目中的二维数组可以进行优化，因为每次只判断当前列和上一列的数组
+
+    技巧：使用一个二维数组来保存动态规划的值，dp[i, j] 其中i到j表示长度为i的word1需要
+    多少操作可以组成长度为j的word2
      */
     public int MinDistance(string word1, string word2) {
         int m = word1.Length, n = word2.Length;

@@ -17,7 +17,7 @@ public class LastStoneWeightII : MonoBehaviour {
 
 	/**
 	Discuss dp解法
-    这个解法相当于把计算出了所有可能的和和差值，然后返回其中的最小值
+    技巧：这个解法相当于把计算出了所有可能的和和差值，然后返回其中的最小值
 	 */
 	public int LastStoneWeightII_(int[] stones) {
         
@@ -49,7 +49,7 @@ public class LastStoneWeightII : MonoBehaviour {
     }
 
     /**
-    类似于把这个数组分成两个子数组，两个子数组的和分别为S1和S2
+    技巧：类似于把这个数组分成两个子数组，两个子数组的和分别为S1和S2
     求S1 - S2的最小值
      */
     public int LastStoneWeightII__(int[] stones) {

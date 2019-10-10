@@ -21,6 +21,7 @@ public class LongestArithmeticSubsequenceofGivenDifference : MonoBehaviour
     https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/
 
     非常典型的HashMap类型动态规划题目
+    
      */
     public int LongestSubsequence(int[] arr, int difference) {
         Dictionary<int, int> dp = new Dictionary<int, int>();

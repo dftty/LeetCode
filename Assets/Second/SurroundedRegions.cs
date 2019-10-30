@@ -70,4 +70,59 @@ public class SurroundedRegions : MonoBehaviour
             return isEdge |= false;
         }
     }
+
+
+    /**
+    并查集解法，对于二维数组，需要保存 m * n个记录
+     */
+    int[] union;
+    bool[] hasEdges;
+    public void Solve_(char[][] board) {
+        if (board == null || board.Length == 0) return ;
+        int height = board.Length, width = board[0].Length;
+        union = new int[height * width];
+        hasEdges = new bool[union.Length];
+        
+        for (int i = 0; i < union.Length; i++){
+            union[i] = i;
+        }
+        
+        for (int i = 0; i < hasEdges.Length; i++){
+            int x = i / width, y = i % width;
+            hasEdges[i] = board[x][y] == 'O' && (x == 0 || y == 0 || x == height - 1 || y == width - 1);
+        }
+        
+        for (int i = 0; i < union.Length; i++){
+            int x = i / width, y = i % width;
+            int up = x - 1, right = y + 1;
+            if (up >= 0 && board[x][y] == board[up][y]) Union(x * width + y, up * width + y);
+            if (right < width && board[x][y] == board[x][right]) Union(x * width + y, x * width + right);
+        }
+        
+        for (int i = 0; i < height; i++){
+            for (int j = 0; j < width; j++){
+                if (board[i][j] == 'O' && !hasEdges[find(i * width + j)]){
+                    board[i][j] = 'X';
+                }
+            }
+        }
+        
+    }
+    
+    void Union(int x, int y){
+        int index_x = find(x);
+        int index_y = find(y);
+        
+        bool hasEdge = hasEdges[index_x] || hasEdges[index_y];
+        union[index_x] = union[index_y];
+        hasEdges[index_y] = hasEdge;
+    }
+    
+    int find(int x){
+        if (union[x] != x){
+            union[x] = find(union[x]);
+        }
+        
+        return union[x];
+    }
 }

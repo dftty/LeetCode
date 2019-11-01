@@ -50,7 +50,6 @@ public class NextPermutation : MonoBehaviour {
             Swap(nums, j, k);
             Array.Reverse(nums, k + 1, nums.Length - k - 1);
         }
-        
     }
     
     public void Swap(int[] nums, int i, int j){

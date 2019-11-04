@@ -19,6 +19,8 @@ public class LowestCommonAncestorofDeepestLeaves : MonoBehaviour
 
     /**
     https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/
+
+    计算出最深节点的深度，然后深度优先遍历，遇到最深节点返回该节点。
      */
     public TreeNode LcaDeepestLeaves(TreeNode root) {
         int d = Depth(root);
@@ -84,6 +86,12 @@ public class LowestCommonAncestorofDeepestLeaves : MonoBehaviour
         Depth(root.right, root);
     }
     
+    /// <summary>
+    /// 交替计算父节点
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
     public TreeNode lca(TreeNode a, TreeNode b){
         while(a != b){
             if(depth[a] < depth[b]){

@@ -7,7 +7,7 @@ public class CountVowelsPermutation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        char c = (char)(10 + '0');
+        
     }
 
     // Update is called once per frame

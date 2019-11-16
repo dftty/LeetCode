@@ -23,6 +23,7 @@ public class Reconstructa2RowBinaryMatrix : MonoBehaviour
     做题时没有仔细读题并且考虑周全，导致测试时出现了各种错误
 
     首先没有判断upper和lower是否可以满足colsum中的所有2的列
+    然后
     */
     public IList<IList<int>> ReconstructMatrix(int upper, int lower, int[] colsum) {
         int sum = 0;

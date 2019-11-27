@@ -8,7 +8,14 @@ public class MinimumMovestoMoveaBoxtoTheirTargetLocation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // char[][] grid = new char[][];
+        char[][] grid = new char[4][];
+
+        grid[0] = new char[]{'#', 'T', '#', '#', '#', '#'};
+        grid[1] = new char[]{'#', '.', '.', 'B', '.', '#'};
+        grid[2] = new char[]{'#', '.', '#', '#', '.', '#'};
+        grid[3] = new char[]{'#', '.', '.', '.', 'S', '#'};
+
+        MinPushBox(grid);
     }
 
     public int[][] d = {new int[]{1, 0}, new int[]{0, 1}, new int[]{-1, 0}, new int[]{0, -1}};
@@ -29,6 +36,16 @@ public class MinimumMovestoMoveaBoxtoTheirTargetLocation : MonoBehaviour
     }
 
 
+    /**
+    https://leetcode.com/problems/minimum-moves-to-move-a-box-to-their-target-location/
+
+    解法来源： Contest 163 第四名 cuiaoxiang  
+    由于c# 中没有双端队列，因此采用List替代
+
+    思路如下：如果题目中没有人，那么只需要对箱子进行BFS即可找到最小路径，但是题目中加入了人推箱子，
+    因此也需要保存人的状态，创建一个flag的四维数组来保存箱子和人的状态。
+
+    */
     public int MinPushBox(char[][] grid) {
         int n = grid.Length, m = grid[0].Length;
         int px = 0, py = 0, bx = 0, by = 0, tx = 0, ty = 0;
@@ -45,7 +62,7 @@ public class MinimumMovestoMoveaBoxtoTheirTargetLocation : MonoBehaviour
                     grid[i][j] = '.';
                 } else if (grid[i][j] == 'B'){
                     bx = i;
-                    by = i;
+                    by = j;
                     grid[i][j] = '.';
                 }
             }
@@ -77,6 +94,7 @@ public class MinimumMovestoMoveaBoxtoTheirTargetLocation : MonoBehaviour
                 if (nx == node.bx && ny == node.by) continue;
                 if (flag[nx, ny, node.bx, node.by] >= 0) continue;
                 flag[nx, ny, node.bx, node.by] = flag[node.px, node.py, node.bx, node.by];
+                // 这里如队首是因为这种状态只有人移动了，箱子没有移动
                 list.Insert(0, new Node(nx, ny, node.bx, node.by));
             }
 

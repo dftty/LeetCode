@@ -79,4 +79,14 @@ public class Trie {
 			}
 			return true;
 		}
+
+		public List<string> GetWord(string word)
+		{
+			List<string> res = new List<string>();
+			Node node = null;
+
+			return res;
+		}
+
+
 }

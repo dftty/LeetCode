@@ -21,8 +21,6 @@ public class NumberofWaystoStayintheSamePlaceAfterSomeSteps : MonoBehaviour
 
     Discuss 解法， 动态规划，该题需要模10^9 + 7,因此需要注意使用long而不是int，保证不会溢出
 
-    
-
     */
 
     long[][] dp;

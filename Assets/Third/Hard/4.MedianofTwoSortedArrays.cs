@@ -57,7 +57,73 @@ namespace Third
             }
         }
 
+        /**
+        Discuss 解法
 
+        解题思路：
+            首先，让我们来看下中位数的定义，在统计学中，中位数是按顺序排列的一组数据中
+        居于中间位置的数，即在这组数据中，有一半的数据比他大，一半的数据比他小。
+
+        对于一个有序数组A[m]
+                    left_A       |      right_A
+        A[1], A[2], ... A[i - 1] | A[i], A[i + 1], ... A[m]
+        左边数组的长度为i，右边数组的长度为m - i，该数组共有m种分割方法
+
+        对于有序数组B[n]
+                    left_B       |       right_B
+        B[1], B[2], ... B[j - 1] | B[j], B[j +1], ... B[n]
+        左边的数组长度为j，右边的数组长度为n - j， 该数组共有n种分割方法。
+
+        我们将两个分割好的数组放在一起
+                    left_array   |     right_array
+        A[1], A[2], ... A[i - 1] | A[i], A[i + 1], ... A[m]
+        B[1], B[2], ... B[j - 1] | B[j], B[j +1], ... B[n]
+
+        只要保证
+        len(left_array) = len(right_array)
+        max(left_array) <= min(right_array)
+        就找到了这两个有序数组的中位数
+
+        其中：
+        i + j = m - i + n - j(或者m - i + n - j +1)
+            如果n >= m 那么如果 i = 0 ~ m， j = (m + n + 1) / 2 - i;
+        A[i - 1] <= B[j] and B[j - 1] <= A[i]
+
+        首先，我们先忽略边界情况，保证A[i - 1], A[i], B[j], B[j - 1]都存在。
+        那么我们有如下情况：
+        imin = 0, imax = m
+        i = (imin + imax) / 2
+        j = (m + n + 1) / 2 - i
+
+        if A[i - 1] <= B[j] and B[j - 1] <= A[i]:
+            当前的i和j就是我们要找的答案
+        else if A[i - 1] > B[j]:
+            这种情况下我们需要将i向左移动
+            因此 imax = i - 1
+        else if B[j - 1] > A[i]:
+            这种情况我们需要将i向右移动
+            因此 imin = i + 1
+
+        找到i时，中位数就是
+            max(A[i - 1], B[j - 1]) 如果数量是奇数
+            (max(A[i - 1], B[j - 1]) + min(A[i], B[j])) / 2 如果数量是偶数
+        
+        接下来我们来考虑边界情况，
+        a:
+            (i == 0 or j == n or A[i - 1] <= B[j]) and
+            (i == m or j == 0 or B[j - 1] <= A[i])
+            这时i和j就是我们要的答案
+        b:
+            i > 0 and j < n and A[i - 1] > B[j]
+            这时我们需要设 imax = i - 1
+        c:
+            i < m and j > 0 and B[j - 1] > A[i]
+            imin = i + 1
+        
+        关键点： 二分查找
+        
+        
+        */
         public double FindMedianSortedArrays_Discuss(int[] nums1, int[] nums2) {
             int m = nums1.Length; 
             int n = nums2.Length; 

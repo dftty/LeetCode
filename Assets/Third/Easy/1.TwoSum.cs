@@ -73,6 +73,29 @@ namespace Third
             return null;
         }
 
+        /**
+        c++ 实现：
+        map在c++中是有序字典,这里也可以使用unordered_map
+
+        c++ 中直接返回一个vector 可以返回 {}
+        还可以这样初始化  vector<int> v = {1, 2, 3, 4}
+
+        
+        vector<int> twoSum(vector<int>& nums, int target) {
+            map<int, int> m;
+            
+            for (int i = 0; i < nums.size(); i++){
+                if (m.find(target - nums[i]) != m.end()){
+                    return {m[target - nums[i]], i};
+                }
+                
+                m[nums[i]] = i;
+            }
+            
+            return {};
+        }
+        */
+
     }
 
 }

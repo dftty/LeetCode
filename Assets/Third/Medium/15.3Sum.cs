@@ -67,7 +67,7 @@ namespace Third
         思路：和自己的解法思路类似，但是双指针判断重复是在条件达成之后
         进行的，这样有效的避免了指针会越界的问题。
 
-        技巧：条件达成之后再进行重复判断
+        技巧：条件达成之后再进行重复判断，把符合条件的全部跳过
         */
         public IList<IList<int>> ThreeSum_D(int[] nums) {
             Array.Sort(nums);

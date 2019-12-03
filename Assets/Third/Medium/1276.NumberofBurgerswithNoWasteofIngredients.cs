@@ -41,6 +41,22 @@ namespace Third
             
             return new List<int>();
         }
+
+        /**
+        Discuss 解法
+
+        思路：类似于古代的鸡兔同笼问题，采用抬腿法解决
+
+        本题中，只需要保证ts的数量为偶数，ts的数量不会超过左右边界即可
+
+        */
+        public IList<int> NumOfBurgers_Discuss(int ts, int cs){
+            if (ts % 2 == 0 && ts >= cs * 2 && cs >= ts / 4){
+                return new List<int>(){(ts - cs * 2) / 2, 2 * cs - ts / 2};
+            }
+
+            return new List<int>();
+        }
     }
 
 }

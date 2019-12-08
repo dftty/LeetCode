@@ -48,6 +48,35 @@ namespace Third
                 temp.RemoveAt(temp.Count - 1);
             }
         }
+
+
+        /**
+        c++ 实现
+
+        c++中vector初始化 {} ，这样不可以作为参数传给 vector<int>&类型
+
+        vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+            vector<vector<int>> res;
+            vector<int> v;
+            backTrack(res, v, candidates, target, 0);
+            return res;
+        }
+        
+        void backTrack(vector<vector<int>>& res, vector<int>& v, vector<int>& c, int target, int start){
+            if (target < 0) return;
+            if (target == 0){
+                res.push_back(v);
+                return ;
+            }
+            
+            for (int i = start; i < c.size(); i++){
+                v.push_back(c[i]);
+                backTrack(res, v, c, target - c[i], i);
+                v.pop_back();
+            }
+        }
+
+        */
     }
 
 }

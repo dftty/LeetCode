@@ -72,6 +72,47 @@ namespace Third
             res[1] = hi;
             return res;
         }
+
+
+        /**
+        c++ 实现
+
+        做题过程中出现了hi = nums.size()这个低级错误，需要避免
+
+        vector<int> searchRange(vector<int>& nums, int target) {
+            vector<int> v = {-1, -1};
+            if (nums.size() == 0) return v;
+            int lo = 0, hi = nums.size() - 1;
+            while (lo < hi){
+                int middle = (lo + hi) / 2;
+                
+                if (nums[middle] >= target){
+                    hi = middle;
+                }else {
+                    lo = middle + 1;
+                }
+            }
+            
+            if (nums[lo] != target){
+                return v;
+            }
+            v[0] = lo;
+            lo = 0;
+            hi = nums.size() - 1;
+            while (lo < hi){
+                int middle = (lo + hi + 1) / 2;
+                
+                if (nums[middle] <= target){
+                    lo = middle;
+                }else {
+                    hi = middle - 1;
+                }
+            }
+            v[1] = hi;
+            return v;
+        }
+
+        */
     }
 
 }

@@ -53,6 +53,35 @@ namespace Third
             }
         }
 
+
+        /**
+        c++实现
+
+        vector<vector<int>> combinationSum2(vector<int>& c, int t) {
+            vector<vector<int>> res;
+            vector<int> v;
+            sort(c.begin(), c.end());
+            backTrack(res, v, c, t, 0);
+            return res;
+        }
+        
+        void backTrack(vector<vector<int>>& res, vector<int>& temp, vector<int>& c, int t, int start){
+            if (t < 0) return ;
+            if (t == 0){
+                res.push_back(temp);
+                return;
+            }
+            
+            for (int i = start; i < c.size(); i++){
+                if (i > start && c[i] == c[i - 1]) continue;
+                temp.push_back(c[i]);
+                backTrack(res, temp, c, t - c[i], i + 1);
+                temp.pop_back();
+            }
+        }
+
+        */
+
     }
 
 }

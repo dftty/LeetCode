@@ -59,6 +59,46 @@ namespace Third
             }
             return -1;
         }
+
+        /**
+
+        思路：首先使用一次二分查找找到最小值的下标，这个二分查找中使用的技巧是令hi = middle，这样可以保证
+            最后lo一定指向最小值的下标。
+            然后开始第二次的二分查找，计算出middle之后，需要计算出移动后middle的位置然后判断。
+
+        */
+        public int Search_Diss(int[] n, int target) {
+            if (n == null || n.Length == 0) return -1;
+            int lo = 0, hi = n.Length - 1;
+            while (lo < hi){
+                int middle = (lo + hi) / 2;
+                
+                if (n[middle] > n[hi]){
+                    lo = middle + 1;
+                }else{
+                    hi = middle;
+                }
+            }
+            
+            int move = lo;
+            lo = 0;
+            hi = n.Length - 1;
+            while (lo <= hi){
+                int middle = (lo + hi) / 2;
+                int rmiddle = (middle + move) % n.Length;
+                if (n[rmiddle] == target){
+                    return rmiddle;
+                }
+                
+                if (n[rmiddle] > target){
+                    hi = middle - 1;
+                }else{
+                    lo = middle + 1;
+                }
+            }
+            
+            return -1;
+        }
     }
 
 }

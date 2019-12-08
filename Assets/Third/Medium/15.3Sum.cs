@@ -97,6 +97,38 @@ namespace Third
             }
             return res;
         }
+
+
+        /**
+        c++ 实现
+
+        vector<vector<int>> threeSum(vector<int>& nums) {
+            sort(nums.begin(), nums.end());
+            
+            vector<vector<int>> res;
+            
+            for (int i = 0; i < nums.size(); i++){
+                if (i > 0 && nums[i] == nums[i - 1]) continue;
+                int lo = i + 1, hi = nums.size() - 1;
+                while (lo < hi){
+                    if (nums[i] + nums[lo] + nums[hi] == 0){
+                        res.push_back({nums[i], nums[lo], nums[hi]});
+                        while (lo < hi && nums[lo] == nums[lo + 1]) lo++;
+                        while (lo < hi && nums[hi] == nums[hi - 1]) hi--;
+                        lo++;
+                        hi--;
+                    }else if (nums[i] + nums[lo] + nums[hi] > 0){
+                        hi--;
+                    }else {
+                        lo++;
+                    }
+                }
+            }
+            
+            return res;
+        }
+
+        */
     }
 
 }

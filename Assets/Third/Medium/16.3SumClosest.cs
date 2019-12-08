@@ -50,6 +50,30 @@ namespace Third
             
             return res;
         }
+
+        /**
+        c++ 实现
+
+        int threeSumClosest(vector<int>& nums, int target) {
+            int res = nums[0] + nums[1] + nums[2];
+            sort(nums.begin(), nums.end());
+            for (int i = 0; i < nums.size(); i++){
+                int lo = i + 1, hi = nums.size() - 1;
+                while (lo < hi){
+                    int sum = nums[i] + nums[lo] + nums[hi];
+                    if (abs(target - res) > abs(target - sum)){
+                        res = sum;
+                    }else if (sum > target){
+                        hi--;
+                    }else{
+                        lo++;
+                    }
+                }
+            }
+            return res;
+        }
+
+        */
     }
 
 }

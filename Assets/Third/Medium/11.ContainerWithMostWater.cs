@@ -50,6 +50,28 @@ namespace Third
             
             return res;
         }
+
+        /**
+
+        c++ 代码实现
+
+        int maxArea(vector<int>& h) {
+            if (h.size() == 0) return 0;
+            int res = 0, lo = 0, hi = h.size() - 1;
+            
+            while(lo < hi){
+                res = max(res, min(h[lo], h[hi]) * (hi - lo));
+                
+                if (h[lo] < h[hi]){
+                    lo++;
+                }else{
+                    hi--;
+                }
+            }
+            return res;
+        }
+
+        */
     }
 
 }

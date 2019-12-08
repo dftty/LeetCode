@@ -179,6 +179,63 @@ namespace Third
             
             return 0;
         }
+
+
+        /**
+        c++ 实现
+
+        double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+            int m = nums1.size(), n = nums2.size();
+            if (m > n){
+                int temp = m;
+                m = n;
+                n = temp;
+                
+                vector<int> v = nums1;
+                nums1 = nums2;
+                nums2 = v;
+            }
+            
+            int imin = 0, imax = m;
+            int half = (m + n + 1) / 2;
+            while (imin <= imax){
+                int i = (imin + imax) / 2;
+                int j = half - i;
+                if (i > 0 && j < n && nums1[i - 1] > nums2[j]){
+                    imax = i - 1;
+                }else if (i < m && j > 0 && nums1[i] < nums2[j - 1]){
+                    imin = i + 1;
+                }else {
+                    int left = 0;
+                    if (i == 0){
+                        left = nums2[j - 1];
+                    }else if (j == 0){
+                        left = nums1[i - 1];
+                    }else{
+                        left = max(nums1[i - 1], nums2[j - 1]);
+                    }
+                    
+                    if ((m + n) % 2 != 0){
+                        return (double)left;
+                    }
+                    
+                    int right = 0;
+                    if (i == m){
+                        right = nums2[j];
+                    }else if (j == n){
+                        right = nums1[i];
+                    }else {
+                        right = min(nums1[i], nums2[j]);
+                    }
+                    
+                    return (double)(left + right) / 2;
+                }
+            }
+            
+            return 0;
+        }
+
+        */
     }
 
 }

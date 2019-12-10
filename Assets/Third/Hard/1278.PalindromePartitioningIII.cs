@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Text;
 using System;
 
-public class Test : MonoBehaviour {
+namespace Third
+{
 
-    // Start is called before the first frame update
+    public class PalindromePartitioningIII : MonoBehaviour
+    {
+        // Start is called before the first frame update
         void Start()
         {
             PalindromePartition("abc", 2);
@@ -18,6 +20,24 @@ public class Test : MonoBehaviour {
             
         }
 
+        /**
+        https://leetcode.com/problems/palindrome-partitioning-iii/
+        Hard
+        Tag : 动态规划
+        Contest 中第九名的解法，原解法为c++
+
+        思路：可以利用一个cost数组来保存s字符串的子数组构成回文需要修改的字符数量
+        cost[i, j] 代表从i到j的子字符串构成回文需要修改的字符数量
+
+        dp[i, j] 代表从0到i的长度的字符串s切分成j块所需要的最小的修改字符数
+
+
+        失误：解题是最初把dp[i, j]中的值都设置为int.MaxValue，导致在计算dp[x, j - 1] + cost[x, i - 1]时
+        溢出，变成负最小值。
+
+        当dp数组会进行加法运算时，小心不要使用int.MaxValue进行初始化
+
+        */
         public int PalindromePartition(string s, int k) {
             int m = s.Length;
             int[,] cost = new int[m, m];
@@ -57,5 +77,6 @@ public class Test : MonoBehaviour {
             
             return res;
         }
+    }
 
 }

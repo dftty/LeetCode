@@ -25,8 +25,8 @@ namespace Third
         Hard
         Tag: 数组 贪心
 
-        思路：
-
+        思路：类似于bfs，遍历时记录下一步会达到的最远距离。
+        curEnd 表示本轮bfs的结束点，   curFastest表示本轮中遍历出的下一轮最远节点。
         */
         public int Jump(int[] nums) {
             int res = 0, curEnd = 0, curFastest = 0;

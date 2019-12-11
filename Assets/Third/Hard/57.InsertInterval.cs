@@ -20,6 +20,14 @@ namespace Third
             
         }
 
+        /**
+        https://leetcode.com/problems/insert-interval/
+        Medium
+        Tag: 数组 排序
+
+        思路：考虑好各种边界情况并进行处理即可
+
+        */
         public int[][] Insert(int[][] intervals, int[] newInterval) {
             List<int[]> list = new List<int[]>();
             if (intervals == null || intervals.Length == 0){
@@ -56,6 +64,38 @@ namespace Third
             
             if (newInterval[0] > intervals[intervals.Length - 1][1]){
                 list.Add(newInterval);
+            }
+            
+            return list.ToArray();
+        }
+
+        /**
+
+        思路：使用三个while循环来处理，第一个while循环处理在newInterval左边的
+        第二个while处理newInterval覆盖的区域，第三个处理newInterval右边的
+        */
+        public int[][] Insert_Dis(int[][] intervals, int[] newInterval) {
+            List<int[]> list = new List<int[]>();
+            if (intervals == null || intervals.Length == 0){
+                list.Add(newInterval);
+                return list.ToArray();
+            }
+            
+            int i = 0;
+            while (i < intervals.Length && intervals[i][1] < newInterval[0]){
+                list.Add(intervals[i++]);
+            }
+            
+            while (i < intervals.Length && intervals[i][0] <= newInterval[1]){
+                newInterval[0] = Math.Min(intervals[i][0], newInterval[0]);
+                newInterval[1] = Math.Max(intervals[i][1], newInterval[1]);
+                i++;
+            }
+            
+            list.Add(newInterval);
+            
+            while (i < intervals.Length){
+                list.Add(intervals[i++]);
             }
             
             return list.ToArray();

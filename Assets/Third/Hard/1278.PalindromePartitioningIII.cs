@@ -77,6 +77,29 @@ namespace Third
             
             return res;
         }
+
+        /**
+        另一种计算cost数组的方法，根据题意，可以知道s的长度最大为100，因此可以提前
+        定义一个长度超过100的cost数组，保证计算时不会越界
+        */
+        public void AnotherCost(string s)
+        {
+            int[,] cost = new int[110, 110];
+
+            for (int i = 0; i < s.Length - 1; i++)
+            {
+                cost[i, i + 1] = s[i] == s[i + 1] ? 0 : 1;
+            }
+
+            for (int k = 2; k <= s.Length; k++)
+            {
+                for (int i = 0; i + k <= s.Length; i++)
+                {
+                    int j = i + k - 1;
+                    cost[i, j] = cost[i + 1, j - 1] + (s[i] == s[j] ? 0 : 1);
+                }
+            }
+        }
     }
 
 }

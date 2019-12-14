@@ -26,6 +26,9 @@ namespace Third
 
         思路： 使用四个指针记录矩阵的上下左右的下标
 
+        提交错误次数：1次
+            https://leetcode.com/submissions/detail/284757431/
+            while循环条件应该为&&
         */
         public IList<int> SpiralOrder(int[][] matrix) {
             IList<int> res = new List<int>();
@@ -64,6 +67,48 @@ namespace Third
             
             return res;
         }
+
+        /**
+
+        c++ 版本
+        vector<int> spiralOrder(vector<vector<int>>& matrix) {
+            vector<int> res;
+            if (matrix.size() == 0) return res;
+            int top = 0, bottom = matrix.size() - 1, left = 0, right = matrix[0].size() - 1;
+            while (top <= bottom && left <= right){
+                for (int i = left; i <= right; i++){
+                    res.push_back(matrix[top][i]);
+                }
+                
+                top++;
+                
+                for (int i = top; i <= bottom; i++){
+                    res.push_back(matrix[i][right]);
+                }
+                
+                right--;
+                
+                if (top <= bottom){
+                    for (int i = right; i >= left; i--){
+                        res.push_back(matrix[bottom][i]);
+                    }
+                }
+                
+                bottom--;
+                
+                if (left <= right){
+                    for (int i = bottom; i >= top; i--){
+                        res.push_back(matrix[i][left]);
+                    }
+                }
+                
+                left++;
+            }
+            
+            return res;
+        }
+
+        */
 
     }
 

@@ -34,6 +34,8 @@ namespace Third
         寻找最后出现的位置时，令 middle = (lo + hi + 1) / 2 这样可以保证middle的位置
         始终在向右移动。
 
+        提交错误次数：1次
+            c++提交出现错误，指针指向了错误的地址(例如数组指针指向-1处)
         */
         public int[] SearchRange(int[] nums, int target) {
             int[] res = new int[2]{-1, -1};

@@ -32,6 +32,8 @@ namespace Third
         然后用双指针lo和hi进行遍历，每次计算当前高度中较小的那个,其中i为lo或者hi
         res += Math.Max(Math.Min(lmax, rmax) - h[i], 0);
 
+        提交错误次数：0次
+
         */
         public int Trap(int[] h) {
             if (h == null || h.Length <= 2) return 0;
@@ -81,6 +83,34 @@ namespace Third
             
             return res;
         }
+
+        /**
+        c++ 解法
+
+        提交错误：1次
+            错误原因，将while循环中的条件写成了 lo <= hi
+            导致当数组长度为1 时，会造成数组越界
+        int trap(vector<int>& height) {
+            if (height.size() == 0) return 0;
+            int lmax = height[0], rmax = height[height.size() - 1];
+            int lo = 0, hi = height.size() - 1;
+            int res = 0;
+            while (lo < hi){
+                if (height[lo] < height[hi]){
+                    res += max(min(lmax, rmax) - height[lo], 0);
+                    lo++;
+                    lmax = max(lmax, height[lo]);
+                }else {
+                    res += max(min(lmax, rmax) - height[hi], 0);
+                    hi--;
+                    rmax = max(rmax, height[hi]);
+                }
+            }
+            
+            return res;
+        }
+
+        */
     }
 
 }

@@ -28,6 +28,8 @@ namespace Third
         思路：首先按照intervals中子数组的第一个元素顺序排序
         然后可以在一个while循环中遍历数组。
 
+        提交错误次数：2次
+            没有考虑到不同的情况
         */
         public int[][] Merge(int[][] intervals) {
             List<int[]> list = new List<int[]>();

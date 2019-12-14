@@ -27,6 +27,8 @@ namespace Third
 
         思路：考虑好各种边界情况并进行处理即可
 
+        提交错误次数：4次
+            其中全部都是没有考虑边界情况，范围可能出现在左边，右边，中间和包括。
         */
         public int[][] Insert(int[][] intervals, int[] newInterval) {
             List<int[]> list = new List<int[]>();

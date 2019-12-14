@@ -97,6 +97,64 @@ namespace Third
             
             return res;
         }
+
+        /**
+        c++ 实现
+
+        提交错误 1次
+            错误原因：cost[i][j] = cost[i + 1][j - 1] + (s[i] == s[j] ? 0 : 1);
+            上述代码后面三目运算符没有添加括号，导致+号的运算优先于 == 出错
+
+        int cost[110][110];
+
+        int palindromePartition(string s, int k) {
+            for (int i = 0; i < s.size() - 1; i++){
+                cost[i][i + 1] = s[i] == s[i + 1] ? 0 : 1;
+            }
+            
+            for (int m = 2; m <= s.size(); m++){
+                for (int i = 0; i + m <= s.size(); i++){
+                    int j = i + m - 1;
+                    cost[i][j] = cost[i + 1][j - 1] + (s[i] == s[j] ? 0 : 1);
+                    if (m == 4)
+                        cout << cost[i][j] << endl;
+                }
+            }
+            
+            // for (int i = 0; i < s.size(); i++){
+            //     for (int j = i; j < s.size(); j++){
+            //         cost[i][j] = go(s, i, j);
+            //     }
+            // }
+            
+            vector<vector<int>> dp(s.size() + 1, vector(k + 1, 1 << 29));
+            dp[0][0] = 0;
+            for (int i = 1; i <= s.size(); i++){
+                for (int j = 1; j <= k; j++){
+                    for (int x = 0; x < i; x++){
+                        dp[i][j] = min(dp[i][j], dp[x][j - 1] + cost[x][i - 1]);
+                    }
+                }
+            }
+            
+            return dp[s.size()][k];
+        }
+        
+        int go(string s, int x, int y){
+            int res = 0;
+            while (x < y){
+                if (s[x] != s[y]){
+                    res++;
+                }
+                
+                x++;
+                y--;
+            }
+            
+            return res;
+        }
+
+        */
     }
 
 }

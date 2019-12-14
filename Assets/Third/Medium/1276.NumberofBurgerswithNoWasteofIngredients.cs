@@ -57,6 +57,20 @@ namespace Third
 
             return new List<int>();
         }
+
+
+        /**
+
+        c++ 实现
+        vector<int> numOfBurgers(int ts, int cs) {
+            if (ts % 2 == 0 && ts >= cs * 2 && ts <= cs * 4){
+                return {(ts - 2 * cs) / 2, 2 * cs - ts / 2};
+            }
+            
+            return {};
+        }
+
+        */
     }
 
 }

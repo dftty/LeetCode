@@ -123,6 +123,10 @@ namespace Third
         关键点： 二分查找
         
         
+        提交错误次数：1次
+            1. https://leetcode.com/submissions/detail/282951095/
+                错误原因，在49 行应该使用Math.Min 我使用了Max
+                错误类型：调用API错误
         */
         public double FindMedianSortedArrays_Discuss(int[] nums1, int[] nums2) {
             int m = nums1.Length; 

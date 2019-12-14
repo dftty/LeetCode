@@ -30,6 +30,8 @@ namespace Third
         这两个数，则返回下标
 
         关键词：遍历数组
+
+        提交错误次数：0
         */
         public int[] TwoSum_My(int[] nums, int target) {
             for (int i = 0; i < nums.Length; i++){

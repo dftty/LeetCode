@@ -27,6 +27,9 @@ namespace Third
 
         思路：使用一个变量记录上一步和这一步之间的最大值，然后每次遍历，改值减一
 
+        提交错误次数：1次
+            https://leetcode.com/submissions/detail/284544442/
+            题意理解错误
         */
         public bool CanJump(int[] nums) {
             if (nums == null || nums.Length == 0) return true;

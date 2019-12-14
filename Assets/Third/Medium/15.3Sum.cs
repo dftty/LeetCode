@@ -32,6 +32,9 @@ namespace Third
         
         注意：解题时遇到各种边界检测问题， 例如在跳过重复数字的while循环中
         没有考虑lo或者hi会超过数组边界，导致数组边界溢出。
+
+        提交错误次数：4次
+            边界没有考虑周全，还出现了数组越界情况。
         */
         public IList<IList<int>> ThreeSum_(int[] nums) {
             Array.Sort(nums);

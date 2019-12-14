@@ -26,7 +26,9 @@ namespace Third
 
         思路：和62类似，题目中加入了障碍，如果遇到障碍，那么路径无需计算
 
-        错误：提交中没有判断起点和终点是障碍的情况
+
+        提交错误次数：2次
+            提交中没有判断起点和终点是障碍的情况
         */
         public int UniquePathsWithObstacles(int[][] o) {
             int m = o.Length, n = o[0].Length;

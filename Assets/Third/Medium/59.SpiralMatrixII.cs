@@ -27,6 +27,7 @@ namespace Third
 
         思路：和54题类似，可以先创建数组，然后在while循环中逐一赋值
 
+        提交错误次数：1次
         */
         public int[][] GenerateMatrix(int n) {
             int[][] res = new int[n][];

@@ -27,6 +27,7 @@ namespace Third
         思路：可以使用回溯求解
         题目中说明没有重复数字，因此无需对原数组进行排序
 
+        提交错误次数：0次
         */
         public IList<IList<int>> CombinationSum_(int[] c, int target) {
             IList<IList<int>> res = new List<IList<int>>();

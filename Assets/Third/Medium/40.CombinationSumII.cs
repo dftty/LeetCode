@@ -29,6 +29,7 @@ namespace Third
         不能出现重复的解法，因此需要对数组进行排序，回溯中跳过
         重复的选项。
 
+        提交错误次数：0次
         */
         public IList<IList<int>> CombinationSum2(int[] c, int target) {
             IList<IList<int>> res = new List<IList<int>>();

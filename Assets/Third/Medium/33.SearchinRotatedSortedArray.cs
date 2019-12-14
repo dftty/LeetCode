@@ -30,7 +30,8 @@ namespace Third
         关键点： 二分查找 递增区间
 
         
-
+        提交错误次数：2次
+            没有仔细读题，导致返回了错误的结果
         */
         public int Search(int[] nums, int target) {
             if (nums == null || nums.Length == 0) return -1;
@@ -99,6 +100,46 @@ namespace Third
             
             return -1;
         }
+
+        /**
+        c++ 实现
+
+        int search(vector<int>& nums, int target) {
+            int lo = 0, hi = nums.size() - 1;
+            int move = 0;
+            while (lo < hi){
+                int middle = (lo + hi) / 2;
+                
+                if (nums[middle] <= nums[hi]){
+                    hi = middle;
+                }else{
+                    lo = middle + 1;
+                }
+            }
+            
+            move = lo;
+            lo = 0;
+            hi = nums.size() - 1;
+            while (lo <= hi){
+                int middle = (lo + hi) / 2;
+                int mid = (middle + move) % nums.size();
+                
+                if (target == nums[mid]){
+                    return mid;
+                }
+                
+                if (target < nums[mid]){
+                    hi = middle - 1;
+                }else{
+                    lo = middle + 1;
+                }
+            }
+            
+            return -1;
+        }
+
+        */
+
     }
 
 }

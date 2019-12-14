@@ -28,6 +28,8 @@ namespace Third
 
         思路：深度优先搜索，该方法会导致TLE错误
 
+        提交错误次数：1次
+            TLE
         */
         int min = int.MaxValue;
         public int MinPathSum(int[][] grid) {

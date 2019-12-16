@@ -8,6 +8,10 @@
 |34|[34.FindFirstandLastPositionofElementinSortedArray](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/34.FindFirstandLastPositionofElementinSortedArray.cs)|Medium|C#|[Array Two Pointer]||
 |39|[39.CombinationSum](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/39.CombinationSum.cs)|Medium|C#|[Array BackTrack]||
 |40|[40.CombinationSumII](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/40.CombinationSumII.cs)|Medium|C#|[Array BackTrack]||
+|41|[41.FirstMissingPositive.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Hard/41.FirstMissingPositive.cs)|Hard|C#|[Array]||
+|42|[42.TrappingRainWater.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Hard/42.TrappingRainWater.cs)|Hard|C#|[Array Two pointer Stack]||
+|45|[45.JumpGameII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Hard/45.JumpGameII.cs)|Hard|C#|[Array Greddy]||
+|57|[57.InsertInterval.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Hard/57.InsertInterval.cs)|Hard|C#|[Array Sort]||
 
 
 

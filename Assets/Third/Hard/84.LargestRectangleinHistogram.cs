@@ -83,6 +83,43 @@ namespace Third
             
             return res;
         }
+
+
+        /**
+        O(nlogn)时间
+        思路：本题可以使用分治法来实现，每次Divid中，找到最小的那个高度的下标min，
+        那么最大的矩形面积就是min左边最大的矩形面积，或者min右边最大的矩形面积，
+        或者是由heights[min]组成的矩形的最大高度面积
+
+        */
+        public int LargestRectangleArea_Div(int[] heights) {
+            if (heights == null) return 0;
+            int res = Divid(heights, 0, heights.Length - 1);
+            return res;
+        }
+        
+        int Divid(int[] heights, int left, int right){
+            if (left > right){
+                return 0;
+            }
+            
+            if (left == right){
+                return heights[left];
+            }
+            
+            int min = left;
+            for (int i = left + 1; i <= right; i++){
+                if (heights[min] > heights[i]){
+                    min = i;
+                }
+            }
+            int leftMax = Divid(heights, left, min - 1);
+            int rightMax = Divid(heights, min + 1, right);
+            
+            int middleMax = (right - left + 1) * heights[min];
+            
+            return Math.Max(leftMax, Math.Max(rightMax, middleMax));
+        }
     }
 
 }

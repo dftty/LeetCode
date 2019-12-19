@@ -53,6 +53,29 @@ namespace Third
         
             return list.ToArray();
         }
+
+
+        /**
+        c++ 实现
+        vector<vector<int>> merge(vector<vector<int>>& intervals) {
+            vector<vector<int>> res;
+            sort(intervals.begin(), intervals.end());
+            int i = 0;
+            while (i < intervals.size()){
+                vector<int> temp = intervals[i];
+                while (i < intervals.size() - 1 && temp[1] >= intervals[i + 1][0]){
+                    temp[0] = min(temp[0], intervals[i + 1][0]);
+                    temp[1] = max(temp[1], intervals[i + 1][1]);
+                    i++;
+                }
+                i++;
+                res.push_back(temp);
+            }
+            
+            return res;
+        }
+
+        */
     }
 
 }

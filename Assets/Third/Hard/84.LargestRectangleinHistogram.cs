@@ -120,6 +120,44 @@ namespace Third
             
             return Math.Max(leftMax, Math.Max(rightMax, middleMax));
         }
+
+        /**
+
+        思路：动态规划解法
+
+        */
+        public int LargestRectangleArea_Dp(int[] heights) {
+            if (heights == null || heights.Length == 0) return 0;
+            int res = 0;
+            
+            int[] left = new int[heights.Length], right = new int[heights.Length];
+            left[0] = -1;
+            right[heights.Length - 1] = heights.Length;
+            
+            for (int i = 1; i < heights.Length; i++){
+                int p = i - 1;
+                while (p >= 0 && heights[p] >= heights[i]){
+                    p = left[p];
+                }
+                
+                left[i] = p;
+            }
+            
+            for (int i = heights.Length - 2; i >= 0; i--){
+                int p = i + 1;
+                while (p < heights.Length && heights[p] >= heights[i]){
+                    p = right[p];
+                }
+                
+                right[i] = p;
+            }
+            
+            for (int i = 0; i < heights.Length; i++){
+                res = Math.Max(res, (right[i] - left[i] - 1) * heights[i]);
+            }
+            
+            return res;
+        }
     }
 
 }

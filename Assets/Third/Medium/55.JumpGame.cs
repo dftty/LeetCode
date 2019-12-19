@@ -47,6 +47,30 @@ namespace Third
             }
             return true;
         }
+
+
+        /**
+        c++ 实现
+
+        提交错误 ：1次
+            --last 写成了 last--
+            导致减一操作后执行，出现错误
+
+        bool canJump(vector<int>& nums) {
+            if (nums.size() == 0) return false;
+            int last = 1;
+            
+            for (int i = 0; i < nums.size() - 1; i++){
+                last = max(nums[i], --last);
+                if (last <= 0){
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        */
     }
 
 }

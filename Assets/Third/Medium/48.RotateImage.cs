@@ -49,15 +49,10 @@ namespace Third
             }
         }
 
-<<<<<<< HEAD
-        /**
-        c++ 实现
-=======
 
         /**
         c++ 实现
 
->>>>>>> 406ceb1fc1c42364bcd8c4ead42007eb7d40eca9
         void rotate(vector<vector<int>>& matrix) {
             reverse(matrix.begin(), matrix.end());
             
@@ -67,14 +62,8 @@ namespace Third
                 }
             }
         }
-<<<<<<< HEAD
-
-
-        */
-=======
         */
         
->>>>>>> 406ceb1fc1c42364bcd8c4ead42007eb7d40eca9
     }
 
 }

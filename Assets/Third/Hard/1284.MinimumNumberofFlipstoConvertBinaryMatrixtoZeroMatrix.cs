@@ -39,7 +39,7 @@ namespace Third
             Encode(mat) 将二维矩阵mat映射成十进制数 x
             Decode(x) 将十进制数x映射成二维矩阵mat
         
-
+        提交错误次数：0次
         */
         int m = 0;
         int n = 0;

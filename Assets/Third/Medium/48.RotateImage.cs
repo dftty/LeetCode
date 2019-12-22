@@ -34,6 +34,7 @@ namespace Third
         技巧：遇到矩阵类需要交换位置的题目，首先考虑是否可以对矩阵进行
         上下或左右反转
 
+        提交错误次数：0次
         */
         public void Rotate(int[][] matrix) {
             if (matrix == null || matrix.Length == 0) return ;
@@ -48,8 +49,15 @@ namespace Third
             }
         }
 
+<<<<<<< HEAD
         /**
         c++ 实现
+=======
+
+        /**
+        c++ 实现
+
+>>>>>>> 406ceb1fc1c42364bcd8c4ead42007eb7d40eca9
         void rotate(vector<vector<int>>& matrix) {
             reverse(matrix.begin(), matrix.end());
             
@@ -59,9 +67,14 @@ namespace Third
                 }
             }
         }
+<<<<<<< HEAD
 
 
         */
+=======
+        */
+        
+>>>>>>> 406ceb1fc1c42364bcd8c4ead42007eb7d40eca9
     }
 
 }

@@ -28,6 +28,8 @@ namespace Third
         思路：首先按照intervals中子数组的第一个元素顺序排序
         然后可以在一个while循环中遍历数组。
 
+        提交错误次数：2次
+            没有考虑到不同的情况
         */
         public int[][] Merge(int[][] intervals) {
             List<int[]> list = new List<int[]>();
@@ -51,6 +53,29 @@ namespace Third
         
             return list.ToArray();
         }
+
+
+        /**
+        c++ 实现
+        vector<vector<int>> merge(vector<vector<int>>& intervals) {
+            vector<vector<int>> res;
+            sort(intervals.begin(), intervals.end());
+            int i = 0;
+            while (i < intervals.size()){
+                vector<int> temp = intervals[i];
+                while (i < intervals.size() - 1 && temp[1] >= intervals[i + 1][0]){
+                    temp[0] = min(temp[0], intervals[i + 1][0]);
+                    temp[1] = max(temp[1], intervals[i + 1][1]);
+                    i++;
+                }
+                i++;
+                res.push_back(temp);
+            }
+            
+            return res;
+        }
+
+        */
     }
 
 }

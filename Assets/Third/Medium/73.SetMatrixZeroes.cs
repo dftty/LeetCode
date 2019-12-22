@@ -27,6 +27,8 @@ namespace Third
         思路：可以使用matrix数组的第一行和第一列来保存改行或者该列是否需要设置为0
         对于第一行和第一列需要特殊判断。
 
+        提交错误次数：2次
+            解题错误
         */
         public void SetZeroes(int[][] matrix) {
             if (matrix == null || matrix.Length == 0) return; 

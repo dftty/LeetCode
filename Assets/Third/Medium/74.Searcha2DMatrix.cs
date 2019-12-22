@@ -76,6 +76,8 @@ namespace Third
         row = middle / n;
         col = middle % n;
         
+        提交错误次数：2次
+            计算数组位置错误
         */
         public bool SearchMatrix_(int[][] matrix, int target) {
             if (matrix == null || matrix.Length == 0) return false;

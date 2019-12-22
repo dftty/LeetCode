@@ -50,8 +50,6 @@ namespace Third
         首先，res的长度为什么是 1 << n， 对于示例中的数组[1, 2, 3]
         其中3个数字1， 2， 3 每个都有选或者不选两种情况，因此总共有 2 * 2 * 2，8种可能2^3
 
-        
-
         */
         public IList<IList<int>> Subsets_Bit(int[] nums) {
             IList<IList<int>> res = new List<IList<int>>();

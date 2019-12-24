@@ -86,6 +86,34 @@ namespace Third
 
 
         /**
+        c++ 实现
+        int largestRectangleArea(vector<int>& heights) {
+            if (heights.size() == 0) return 0;
+            stack<int> s;
+            
+            int res = 0;
+            for (int i = 0; i <= heights.size(); i++){
+                int h = i == heights.size() ? 0 : heights[i];
+                if (s.size() == 0 || heights[s.top()] <= h){
+                    s.push(i);
+                }else{
+                    while (s.size() > 0 && heights[s.top()] > h){
+                        int index = s.top();
+                        s.pop();
+                        res = max(res, heights[index] * (s.size() == 0 ? i : i - s.top() - 1));
+                    }
+                    
+                    s.push(i);
+                }
+            }
+            
+            return res;
+        }
+
+        */
+
+
+        /**
         O(nlogn)时间
         思路：本题可以使用分治法来实现，每次Divid中，找到最小的那个高度的下标min，
         那么最大的矩形面积就是min左边最大的矩形面积，或者min右边最大的矩形面积，

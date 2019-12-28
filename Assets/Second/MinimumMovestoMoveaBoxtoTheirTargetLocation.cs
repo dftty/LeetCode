@@ -96,7 +96,7 @@ public class MinimumMovestoMoveaBoxtoTheirTargetLocation : MonoBehaviour
                 flag[nx, ny, node.bx, node.by] = flag[node.px, node.py, node.bx, node.by];
                 // 这里入队首是因为这种状态只有人移动了，箱子没有移动
                 list.Insert(0, new Node(nx, ny, node.bx, node.by));
-            }
+            } 
 
             if (Math.Abs(node.px - node.bx) + Math.Abs(node.py - node.by) == 1){
                 int k;

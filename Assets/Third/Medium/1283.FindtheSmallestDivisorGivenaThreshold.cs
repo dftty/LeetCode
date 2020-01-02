@@ -62,6 +62,34 @@ namespace Third
             return res;
         }
 
+        /**
+        c++ 实现
+
+        技巧：对于寻找上下界的二分查找，可以使用lo < hi的条件，
+        然后移动的条件根据寻找的目标写成 lo = middle 或 hi = middle
+        int smallestDivisor(vector<int>& nums, int threshold) {
+            int lo = 1, hi = 1000000;
+            
+            while (lo <= hi){
+                int middle = (lo + hi) / 2;
+                
+                int sum = 0;
+                for (int i = 0; i < nums.size(); i++){
+                    sum = sum + (int)(ceil((float)nums[i] / middle));
+                }
+                
+                if (sum > threshold){
+                    lo = middle + 1;
+                }else{
+                    hi = middle - 1;
+                }
+            }
+            
+            return lo;
+        }
+
+        */
+
     }
 
     

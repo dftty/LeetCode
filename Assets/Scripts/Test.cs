@@ -45,7 +45,7 @@ public class Test : MonoBehaviour {
             
             while (list.Count > 0){
                 Node node = list[0];
-                //if (node.x == m - 1 && node.y == n - 1) return flag[node.x, node.y, node.z];
+                if (node.x == m - 1 && node.y == n - 1) return flag[node.x, node.y, node.z];
                 list.RemoveAt(0);
                 
                 for (int i = 0; i < 4; i++){
@@ -63,8 +63,8 @@ public class Test : MonoBehaviour {
             }
             int res = int.MinValue;
             for (int i = 0; i <= k; i++){
-                // res = Math.Min(res, flag[m - 1, n - 1, i]);
-                // Console.WriteLine(flag[m - 1, n - 1, i]);
+                res = Math.Min(res, flag[m - 1, n - 1, i]);
+                Console.WriteLine(flag[m - 1, n - 1, i]);
             }
             
             return res;

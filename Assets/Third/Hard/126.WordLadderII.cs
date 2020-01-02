@@ -138,7 +138,9 @@ namespace Third
         public static void AddOrUpdateDictionary(System.Collections.Generic.Dictionary<string, List<string>> dict, string key, string value) {
             if (dict.ContainsKey(key)) dict[key].Add(value);   // 这样可以更新value的值
             else {
-                var _list = new List<string>(); _list.Add(value); dict.Add(key, _list); // 新建列表,存入value
+                var _list = new List<string>(); 
+                _list.Add(value); 
+                dict.Add(key, _list); // 新建列表,存入value
             }
         }
         public static void getPaths(string word, string endWord,

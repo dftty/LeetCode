@@ -107,6 +107,30 @@ namespace Third
             
             return dp[n - 1];
         }
+
+        /**
+        c++ 解法
+
+        int minPathSum(vector<vector<int>>& grid) {
+            if (grid.size() == 0 || grid[0].size() == 0) return 0;
+            int m = grid.size(), n = grid[0].size();
+            
+            vector<int> dp(n, 0);
+            dp[0] = grid[0][0];
+            for (int i = 1; i < n; i++){
+                dp[i] += dp[i - 1] + grid[0][i];
+            }
+            
+            for (int i = 1; i < m; i++){
+                dp[0] += grid[i][0];
+                for (int j = 1; j < n; j++){
+                    dp[j] = grid[i][j] + min(dp[j], dp[j - 1]);
+                }
+            }
+            
+            return dp[n - 1];
+        }
+        */
     }
 
 }

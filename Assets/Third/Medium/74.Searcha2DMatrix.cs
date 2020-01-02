@@ -103,6 +103,33 @@ namespace Third
             
             return false;
         }
+
+        /**
+        c++ 实现
+        bool searchMatrix(vector<vector<int>>& matrix, int target) {
+            if (matrix.size() == 0 || matrix[0].size() == 0) return false;
+            int m = matrix.size(), n = matrix[0].size();
+            
+            int lo = 0, hi = m * n - 1;
+            
+            while (lo <= hi){
+                int middle = (lo + hi) / 2;
+                int i = middle / n;
+                int j = middle % n;
+                
+                if (matrix[i][j] == target){
+                    return true;
+                }else if (matrix[i][j] > target){
+                    hi = middle - 1;
+                }else {
+                    lo = middle + 1;
+                }
+            }
+            
+            return false;
+        }
+
+        */
     }
 
 }

@@ -21,6 +21,8 @@
 |63|[63.UniquePathsII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/63.UniquePathsII.cs)|Medium|C#|[Array DP]||
 |64|[64.MinimumPathSum.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/64.MinimumPathSum.cs)|Medium|C#|[Array DP]||
 |74|[74.Searcha2DMatrix.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/74.Searcha2DMatrix.cs)|Medium|C#|[Array Binary Search]||
+|78|[78.Subsets.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/78.Subsets.cs)|Medium|C#|[Array Backtrack]||
+|79|[79.WordSearch.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/79.WordSearch.cs)|Medium|C#|[Array DFS]||
 |1276|[1276.NumberofBurgerswithNoWasteofIngredients.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/1276.NumberofBurgerswithNoWasteofIngredients.cs)|Medium|C#|[Math Greedy]||
 |1277|[1277.CountSquareSubmatriceswithAllOnes.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/1277.CountSquareSubmatriceswithAllOnes.cs)|Medium|C#|[Array DP]||
 |1278|[1278.PalindromePartitioningIII](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Hard/1278.PalindromePartitioningIII)|Hard|C#|[DP]||

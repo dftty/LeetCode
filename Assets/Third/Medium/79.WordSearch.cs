@@ -81,6 +81,46 @@ namespace Third
             
             return has;
         }
+
+        /**
+        c++ 实现
+        bool exist(vector<vector<char>>& board, string word) {
+            for (int i = 0; i < board.size(); i++){
+                for (int j = 0; j < board[i].size(); j++){
+                    if (board[i][j] == word[0]){
+                        if (Dfs(board, i, j, word, 0)){
+                            return true;
+                        }
+                    }
+                }
+            }
+            
+            return false;
+        }
+        
+        bool Dfs(vector<vector<char>>& board, int i, int j, string word, int index){
+            if (index == word.size()){
+                return true;
+            }
+            if (i < 0 || j < 0 || i >= board.size() || j >= board[i].size()){
+                return false;
+            }
+            
+            if (board[i][j] != word[index]){
+                return false;
+            }
+            
+            char ch = board[i][j];
+            board[i][j] = '.';
+            
+            bool res = Dfs(board, i + 1, j, word, index + 1) || Dfs(board, i - 1, j, word, index + 1)
+                        || Dfs(board, i, j + 1, word, index + 1) || Dfs(board, i, j - 1, word, index + 1);
+            
+            board[i][j] = ch;
+            return res;
+        }
+
+        */
     }
 
 }

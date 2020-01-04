@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using System;
+using System.Diagnostics;
+using System.Linq;
 
 public class Test : MonoBehaviour {
 
         void Start()
         {
-            int[][] arr = new int[2][]{new int[2]{0, 1}, new int[2]{1, 0}};
-            int k = 1;
-            ShortestPath(arr, k);
+            string[] words = new string[]{"SIX","SEVEN","SEVEN"};
+            string result = "TWENTY";
+
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            IsSolvable(words, result);
+            UnityEngine.Debug.Log(sw.ElapsedMilliseconds);
+            UnityEngine.Debug.Log(count);
         }
 
         // Update is called once per frame
@@ -23,102 +30,128 @@ public class Test : MonoBehaviour {
         /**
         
         */
+        int count = 0;
 
-        public int[][] d = {new int[]{1, 0}, new int[]{0, 1}, new int[]{-1, 0}, new int[]{0, -1}};
-        public const int N = 41;
+        public bool IsSolvable(string[] words, string result) {
+            int[] charValue = new int[26];
+
+            HashSet<char> charSet = new HashSet<char>();
+            bool[] head = new bool[26];
+            for (int i = 0; i < words.Length; i++){
+                head[words[i][0] - 'A'] = true;
+                for (int j = 0; j < words[i].Length; j++){
+                    charSet.Add(words[i][j]);
+
+                    charValue[words[i][j] - 'A'] += (int)Math.Pow(10, words[i].Length - j - 1);
+                }
+            }
+            
+            head[result[0] - 'A'] = true;
+            for (int i = 0; i < result.Length; i++){
+                charSet.Add(result[i]);
+
+                charValue[result[i] - 'A'] -= (int)Math.Pow(10, result.Length - i - 1);
+            }
+            
+            char[] list = new List<char>(charSet).ToArray();
+            return BackTrack(list, 0, new bool[10], head, 0L, charValue);
+        }
         
-        public int ShortestPath(int[][] grid, int k) {
-            int m = grid.Length, n = grid[0].Length;
-            int[,,] flag = new int[m, n, k + 1];
-            for (int i = 0; i < m; i++){
-                for (int j = 0; j < n; j++){
-                    for (int l = 0; l <= k; l++){
-                        flag[i, j, l] = int.MinValue;
+        bool BackTrack(char[] charList, int start, bool[] use, bool[] head, long sum, int[] charValue){
+            count++;
+            if (start == charList.Length) {
+                return sum == 0;
+            }
+            
+            for (int i = 0; i < 10; i++){
+                if (i == 0 && head[charList[start] - 'A']) continue;
+                if (!use[i]) {
+                    use[i] = true;
+                    if (BackTrack(charList, start + 1, use, head, sum + charValue[charList[start] - 'A'] * i, charValue)){
+                        return true;
                     }
-                }
-            }
-            
-            List<Node> list = new List<Node>();
-            list.Add(new Node(0, 0, 0));
-            flag[0, 0, 0] = 0;
-            
-            
-            while (list.Count > 0){
-                Node node = list[0];
-                if (node.x == m - 1 && node.y == n - 1) return flag[node.x, node.y, node.z];
-                list.RemoveAt(0);
-                
-                for (int i = 0; i < 4; i++){
-                    int nx = node.x + d[i][0];
-                    int ny = node.y + d[i][1];
-                    
-                    if (nx < 0 || nx >= m || ny < 0 || ny >= n) continue;
-                    int nz = node.z + grid[nx][ny];
-                    if (nz > k) continue;
-                    if (flag[nx, ny, nz] >= 0) continue;
-                    
-                    flag[nx, ny, nz] = flag[node.x, node.y, node.z] + 1;
-                    list.Add(new Node(nx, ny, nz));
-                }
-            }
-            int res = int.MinValue;
-            for (int i = 0; i <= k; i++){
-                res = Math.Min(res, flag[m - 1, n - 1, i]);
-                Console.WriteLine(flag[m - 1, n - 1, i]);
-            }
-            
-            return res;
-        }
-        
-        struct Node{
-            public int x, y, z;
-            
-            public Node(int x, int y, int z){
-                this.x = x;
-                this.y = y;
-                this.z = z;
-            }
-        }
-        
 
-        public int PalindromePartition(string s, int k) {
-            int m = s.Length;
-            int[,] cost = new int[m, m];
-            
-            for (int i = 0; i < s.Length; i++){
-                for (int j = 1; j < s.Length; j++){
-                    cost[i, j] = go(s, i, j);
-                }
+                    use[i] = false;
+                }   
             }
             
-            int[,] dp = new int[m + 1, k + 1];
-
-            for (int i = 0; i <= m; i++){
-                for (int j = 0; j <= k; j++){
-                    dp[i, j] = 1 << 29;
-                }
-            }
-            dp[0, 0] = 0;
-            for (int i = 1; i <= m; i++){
-                for (int j = 1; j <= k; j++){
-                    for (int x = 0; x < i; x++){
-                        dp[i, j] = Math.Min(dp[i, j], dp[x, j - 1] + cost[x, i - 1]);
-                    }
-                }
-            }
-            
-            return dp[m, k];
-        }
-        
-        int go(string s, int x, int y){
-            int res = 0;
-            while (x < y){
-                if (s[x] != s[y]) res++;
-                x++;
-                y--;
-            }
-            
-            return res;
+            return false;
         }
 
+    //     public bool IsSolvable(string[] words, string result)
+    // {
+    //     int[] charValues = new int[26];
+    //     bool[] isFirstWordChar = new bool[26];
+
+    //     HashSet<char> charsSet = new HashSet<char>();
+    //     foreach (var word in words)
+    //     {
+    //         for (int i = 0; i < word.Length; i++)
+    //         {
+    //             if (i == 0)
+    //             {
+    //                 isFirstWordChar[word[i] - 'A'] = true;
+    //             }
+    //             charsSet.Add(word[i]);
+    //             // set value to power of 10 starting from LSB
+    //             charValues[word[i] - 'A'] += (int)Math.Pow(10, word.Length - i - 1);
+    //         }
+    //     }
+
+    //     for (int i = 0; i < result.Length; i++)
+    //     {
+    //         if (i == 0)
+    //         {
+    //             isFirstWordChar[result[i] - 'A'] = true;
+    //         }
+    //         charsSet.Add(result[i]);
+    //         charValues[result[i] - 'A'] -= (int)Math.Pow(10, result.Length - i - 1);
+    //     }
+
+    //     int visited = 0;
+    //     long sum = 0L;
+    //     char[] distinctChars = charsSet.ToArray();
+    //     UnityEngine.Debug.Log(distinctChars.Length);
+
+    //     if (dfs(0, distinctChars, visited, sum, isFirstWordChar, charValues))
+    //     {
+    //         return true;
+    //     }
+
+    //     return false;
+    // }
+
+    // private bool dfs(int charIndex, char[] distinctChars, int visited, long sum, bool[] isFirstWordChar, int[] charValues)
+    // {
+    //     count++;
+    //     if (charIndex == distinctChars.Length)
+    //     {
+    //         return sum == -10;
+    //     }
+
+    //     for (int d = 0; d <= 9; d++)
+    //     {
+	// 	    // #3: Each words[i] and result are decoded as one number without leading zeros.
+    //         if (d == 0 && isFirstWordChar[distinctChars[charIndex] - 'A'])
+    //         {
+    //             continue;
+    //         }
+
+    //         if ((visited & (1 << d)) == 0)
+    //         {
+    //             visited |= (1 << d);
+
+    //             if (dfs(charIndex + 1, distinctChars, visited, sum + charValues[distinctChars[charIndex] - 'A'] * d, isFirstWordChar, charValues))
+    //             {
+    //                 return true;
+    //             }
+
+    //             visited ^= (1 << d);
+    //         }
+    //     }
+
+    //     return false;
+    // }
+    
+      
 }

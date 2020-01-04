@@ -59,6 +59,41 @@ namespace Third
             
             return false;
         }
+
+        /**
+        c++ 实现
+        bool search(vector<int>& nums, int target) {
+            int lo = 0, hi = nums.size() - 1;
+            
+            while (lo <= hi){
+                int middle = (lo + hi) / 2;
+                
+                if (nums[middle] == target){
+                    return true;
+                }    
+                
+                if (nums[middle] < nums[hi]){
+                    if (target > nums[middle] && target <= nums[hi]){
+                        lo = middle + 1;
+                    }else{
+                        hi = middle - 1;
+                    }
+                    
+                }else if (nums[middle] > nums[hi]){
+                    if (target >= nums[lo] && target < nums[middle]){
+                        hi = middle - 1;
+                    }else{
+                        lo = middle + 1;
+                    }
+                }else{
+                    hi--;
+                }
+            }
+            
+            return false;
+        }
+
+        */
     }
 
 }

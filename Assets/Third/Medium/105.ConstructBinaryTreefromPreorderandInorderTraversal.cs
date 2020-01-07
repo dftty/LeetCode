@@ -57,6 +57,37 @@ namespace Third
             
             return node;
         }
+
+        /**
+
+        c++ 实现
+        TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+            TreeNode* res = construct(0, 0, preorder.size() - 1, preorder, inorder);
+            return res;
+        }
+        
+        TreeNode* construct(int start, int left, int right, vector<int>& preorder, vector<int>& inorder){
+            if (start >= preorder.size() || left > right){
+                return NULL;
+            }
+            
+            int middle = 0;
+            for (int i = left; i <= right; i++){
+                if (inorder[i] == preorder[start]){
+                    middle = i;
+                    break;
+                }
+            }
+            
+            TreeNode* node = new TreeNode(preorder[start]);
+            
+            node->left = construct(start + 1, left, middle - 1, preorder, inorder);
+            node->right = construct(start + middle - left + 1, middle + 1, right, preorder, inorder);
+            
+            return node;
+        }
+
+        */
     }
 
 }

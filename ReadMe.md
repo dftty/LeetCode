@@ -23,6 +23,9 @@
 |74|[74.Searcha2DMatrix.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/74.Searcha2DMatrix.cs)|Medium|C#|[Array Binary Search]||
 |78|[78.Subsets.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/78.Subsets.cs)|Medium|C#|[Array Backtrack]||
 |79|[79.WordSearch.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/79.WordSearch.cs)|Medium|C#|[Array DFS]||
+|81|[81.SearchinRotatedSortedArrayII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/81.SearchinRotatedSortedArrayII.cs)|Medium|C#|[Array Binary Search]||
+|90|[90.SubsetsII.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/90.SubsetsII.cs)|Medium|C#|[Array Backtrack]||
+|105|[105.ConstructBinaryTreefromPreorderandInorderTraversal.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/105.ConstructBinaryTreefromPreorderandInorderTraversal.cs)|Medium|C#|[Array Tree]||
 |1276|[1276.NumberofBurgerswithNoWasteofIngredients.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/1276.NumberofBurgerswithNoWasteofIngredients.cs)|Medium|C#|[Math Greedy]||
 |1277|[1277.CountSquareSubmatriceswithAllOnes.cs](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Medium/1277.CountSquareSubmatriceswithAllOnes.cs)|Medium|C#|[Array DP]||
 |1278|[1278.PalindromePartitioningIII](https://github.com/dftty/LeetCode/blob/master/Assets/Third/Hard/1278.PalindromePartitioningIII)|Hard|C#|[DP]||

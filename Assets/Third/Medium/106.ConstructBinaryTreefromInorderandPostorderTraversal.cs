@@ -52,6 +52,38 @@ namespace Third
             node.right = Construct(inorder, postorder, postEnd - 1, index + 1, right);
             return node;
         }
+
+        /**
+
+        TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+            TreeNode* res = construct(inorder.size() - 1, 0, inorder.size() - 1, inorder, postorder);
+            return res;
+        }
+        
+        TreeNode* construct(int start, int left, int right, vector<int>& in, vector<int>& post){
+            if (start < 0 || left > right){
+                return NULL;
+            }
+            
+            int middle = 0;
+            for (int i = left; i <= right; i++){
+                if (in[i] == post[start]){
+                    middle = i;
+                    
+                    break;
+                }
+            }
+            
+
+            TreeNode* root = new TreeNode(post[start]);
+            
+            root->left = construct(start - right + middle - 1 , left, middle - 1, in, post);
+            root->right = construct(start - 1, middle + 1, right, in, post);
+                
+            return root;
+        }
+
+        */
     }
 
 }

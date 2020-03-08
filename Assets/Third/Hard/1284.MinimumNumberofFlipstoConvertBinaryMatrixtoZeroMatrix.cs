@@ -120,6 +120,96 @@ namespace Third
             }
         }
 
+        /**
+        c++ 实现
+        int minFlips(vector<vector<int>>& mat) {
+            int m = mat.size(), n = mat[0].size();
+            
+            set<int> s;
+            vector<int> q;
+            int res = 0;
+            int start = toNum(mat);
+            s.insert(start);
+            q.push_back(start);
+            
+            while (q.size() > 0){
+                int count = q.size();
+                for (int i = 0; i < count; i++){
+                    int num = q.front();
+                    if (num == 0) return res;
+                    q.erase(q.begin());
+                    vector<vector<int>> v = toArray(num, m, n);
+                    
+                    for (int j = 0; j < v.size(); j++){
+                        for (int k = 0; k < v[j].size(); k++){
+                            vector<vector<int>> temp = flip(v, j, k);
+                            int num = toNum(temp);
+                            if (!s.insert(num).second){
+                                continue;
+                            }
+                            
+                            q.push_back(num);
+                        }
+                    }
+                }
+                
+                res++;
+            }
+            
+            return -1;
+        }
+        
+        vector<vector<int>> toArray(int num, int m, int n){
+            vector<vector<int>> v(m, vector<int>(n, 0));
+            
+            for (int i = 0; i < m; i++){
+                for (int j = 0; j < n; j++){
+                    v[i][j] = num & 1;
+                    num = num >> 1;
+                }
+            }
+            
+            return v;
+        }
+        
+        int toNum(vector<vector<int>>& v){
+            int res = 0;
+            for (int i = 0; i < v.size(); i++){
+                for (int j = 0; j < v[i].size(); j++){
+                    res = (res << 1) + v[i][j];
+                }
+            }
+            
+            return res;
+        }
+        
+        vector<vector<int>> flip(vector<vector<int>>& v, int i, int j){
+            vector<vector<int>> res(v.size(), vector<int>(v[0].size(), 0));
+            
+            for (int k = 0; k < v.size(); k++){
+                for (int m = 0; m < v[0].size(); m++){
+                    res[k][m] = v[k][m];
+                }
+            }
+            
+            for (int k = -1; k <= 1; k++){
+                if (k == 0) continue;
+                if (i + k >= 0 && i + k < v.size()){
+                    res[i + k][j] ^= 1;
+                }
+                
+                if (j + k >= 0 && j + k < v[i].size()){
+                    res[i][j + k] ^= 1;
+                }
+            }
+            
+            res[i][j] ^= 1;
+            
+            return res;
+        }
+
+        */
+
     }
 
 }

@@ -18,6 +18,21 @@ public class Test : MonoBehaviour {
             IsSolvable(words, result);
             UnityEngine.Debug.Log(sw.ElapsedMilliseconds);
             UnityEngine.Debug.Log(count);
+
+            int[] arr = new int[3];
+            
+            Array.Sort(arr, new IntCompare());
+
+            AssetBundle ab = AssetBundle.LoadFromFile("");
+            ab.LoadAssetAsync("name");
+        }
+
+        public class IntCompare : IComparer<int>
+        {
+            public int Compare(int a, int b)
+            {
+                return 0;
+            }
         }
 
         // Update is called once per frame
@@ -26,6 +41,39 @@ public class Test : MonoBehaviour {
             
         }
 
+        public int[] MaxSlidingWindow(int[] nums, int k) {
+            if (nums == null || nums.Length == 0) return new int[0];
+            int[] res = new int[nums.Length - k + 1];
+            
+            LinkedList<int> list = new LinkedList<int>();
+
+            for (int i = 0; i < nums.Length; i++){
+                while (list.Count > 0 && list.First.Value < i - k + 1){
+                    list.RemoveFirst();
+                }
+
+                while (list.Count > 0 && nums[list.Last.Value] < nums[i]){
+                    list.RemoveLast();
+                }
+
+                list.AddLast(nums[i]);
+                if (i - k + 1 > 0){
+                    res[i - k + 1] = nums[list.First.Value];
+                }
+            }
+
+            return res;
+        }
+
+        public void T(int a)
+        {
+
+        }
+
+        public int T(int a, int b)
+        {
+            return 0;
+        }
 
         /**
         
@@ -154,4 +202,65 @@ public class Test : MonoBehaviour {
     // }
     
       
+}
+
+public class IteratorSample : IEnumerable
+{
+    object[] values;
+    int startPoint;
+
+    public IteratorSample(object[] values, int startPoint)
+    {
+        this.values = values;
+        this.startPoint = startPoint;
+    }
+
+    public IEnumerator GetEnumerator()
+    {
+        //return new IterationIteratorSample(this);
+
+        for (int index = 0; index < values.Length; index++){
+            yield return values[(index + startPoint) % values.Length];
+        }
+    }
+
+    class IterationIteratorSample : IEnumerator
+    {
+        IteratorSample parent;
+        int position;
+
+        public IterationIteratorSample(IteratorSample parent)
+        {
+            this.parent = parent;
+            this.position = -1;
+        }
+
+        public bool MoveNext()
+        {
+            if (position != parent.values.Length){
+                position++;
+            }
+            return position < parent.values.Length;
+        }
+
+        public object Current
+        {
+            get
+            {
+                if (position == -1 || position == parent.values.Length)
+                {
+                    throw new Exception();
+                }
+                
+                int index = position + parent.startPoint;
+                index = index % parent.values.Length;
+                return parent.values[index];
+            }
+        }
+
+        public void Reset()
+        {
+            position = -1;
+        }
+    }
 }

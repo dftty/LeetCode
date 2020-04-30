@@ -152,6 +152,118 @@ public class Test : MonoBehaviour {
 
     //     return false;
     // }
-    
+    public TreeNode GetNext(TreeNode node)
+    {
+        TreeNode right = node.right;
+        if (right != null)
+        {
+            while (right.left != null)
+            {
+                right = right.left;
+            }
+            return right;
+        }
+
+        TreeNode parent = node.parent;
+        if (parent != null && parent.left == node)
+        {
+            return parent;
+        }
+        while (parent != null && parent.left != node)
+        {
+            node = parent;
+            parent = node.parent;
+        }
+
+        if (parent != null)
+        {
+            return parent;
+        }
+
+        return null;
+    }
+
+    public class Queue
+    {
+        private Stack<int> stack_1;
+        private Stack<int> stack_2;
+
+        public Queue()
+        {
+            stack_1 = new Stack<int>();
+            stack_2 = new Stack<int>();
+        }
+
+        // O(1) 时间
+        public void AppendTail(int num)
+        {
+            stack_1.Push(num);
+        }
+
+        // O(n) 时间
+        // public int DeleteHead()
+        // {
+        //     if (stack_1.Count == 0)
+        //     {
+        //         throw new Exception("Queue is empty");
+        //     }
+
+        //     while (stack_1.Count > 1)
+        //     {
+        //         stack_2.Push(stack_1.Pop());
+        //     }
+
+        //     int result = stack_1.Pop();
+
+        //     while (stack_2.Count > 0)
+        //     {
+        //         stack_1.Push(stack_2.Pop());
+        //     }
+
+        //     return result;
+        // }
+
+        
+        public int DeleteHead()
+        {
+            if (stack_2.Count == 0)
+            {
+                while (stack_1.Count > 0)
+                {
+                    stack_2.Push(stack_1.Pop());
+                }
+            }
+
+            if (stack_2.Count == 0)
+            {
+                throw new Exception("Queue is empty");
+            }
+
+            return stack_2.Pop();
+        }   
+
+        public string MaxSubArray(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < str.Length; i++){
+                if (sb.Length == 0){
+                    sb.Append(str[i]);
+                }else
+                {
+                    int index = sb.Length;
+                    for (; index > 0; index--){
+                        if (sb[index - 1] >= str[i]){
+                            break;
+                        }
+                    }
+                    sb.Length = index - 1 >= 0 ? index - 1 : 0;
+                    sb.Append(str[i]);
+                }
+            }
+
+            return sb.ToString();
+        }
+    }
       
 }

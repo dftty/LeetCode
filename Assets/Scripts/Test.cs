@@ -10,24 +10,60 @@ public class Test : MonoBehaviour {
 
         void Start()
         {
-            string[] words = new string[]{"SIX","SEVEN","SEVEN"};
-            string result = "TWENTY";
+			UnityEngine.Debug.Log(NumRollsToTarget(3, 6, 3));
+		}
 
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            IsSolvable(words, result);
-            UnityEngine.Debug.Log(sw.ElapsedMilliseconds);
-            UnityEngine.Debug.Log(count);
 
-            int[] arr = new int[3];
-            
-            Array.Sort(arr, new IntCompare());
+	public int NumRollsToTarget(int d, int f, int target)
+	{
+		long[,,] dp = new long[d + 1, f + 2, target + 1];
 
-            AssetBundle ab = AssetBundle.LoadFromFile("");
-            ab.LoadAssetAsync("name");
-        }
+		for (int i = 1; i <= Math.Min(f, target); i++)
+		{
+			dp[1, i, i] = 1;
+		}
 
-        public class IntCompare : IComparer<int>
+		for (int k = 1; k <= target; k++)
+		{
+			for (int j = 1; j <= f; j++)
+			{
+				dp[1, f + 1, k] += dp[1, j, k];
+			}
+		}
+
+		for (int i = 2; i <= d; i++)
+		{
+			for (int j = 1; j <= Math.Min(f, target - i + 1); j++)
+			{
+				for (int k = 1; k <= target; k++)
+				{
+					if (target - j < 0)
+					{
+						break;
+					}
+					dp[i, j, k] += dp[i - 1, f + 1, target - j];
+				}
+			}
+
+			for (int k = 1; k <= target; k++)
+			{
+				for (int j = 1; j <= f; j++)
+				{
+					dp[i, f + 1, k] += dp[i, j, k];
+				}
+
+				if (k < i)
+				{
+					dp[i, f + 1, k] = 0;
+				}
+			}
+
+		}
+
+		return (int)(dp[d, f + 1, target] % 100000007);
+	}
+
+	public class IntCompare : IComparer<int>
         {
             public int Compare(int a, int b)
             {

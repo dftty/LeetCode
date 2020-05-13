@@ -56,6 +56,37 @@ namespace Third
                 }
             }
         }
+
+        /**
+        使用字典缓存结果
+        */
+        public IList<string> WordBreak_(string s, IList<string> wordDict) {
+            return BackTrack(s, new HashSet<string>(wordDict), new Dictionary<string, IList<string>>());
+        }
+        
+        IList<string> BackTrack(string s, HashSet<string> word, Dictionary<string, IList<string>> dic){
+            if (dic.ContainsKey(s)){
+                return dic[s];
+            }
+            
+            if (string.IsNullOrEmpty(s)){
+                return new List<string>(){""};
+            }
+            
+            IList<string> res = new List<string>();
+
+            foreach (string str in word){
+                if (s.StartsWith(str)){
+                    IList<string> list = BackTrack(s.Substring(str.Length), word, dic);
+                    foreach (string st in list){
+                        res.Add(str + (st.Length == 0 ? "" : " ") + st);
+                    }
+                }
+            }
+            
+            dic.Add(s, res);
+            return res;
+        }
     }
 
 }

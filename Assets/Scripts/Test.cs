@@ -5,26 +5,29 @@ using System.Text;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Globalization;
 
 public class Test : MonoBehaviour {
 
         void Start()
         {
-            string[] words = new string[]{"SIX","SEVEN","SEVEN"};
-            string result = "TWENTY";
+            string str = "To be or not to be";
+            ArrangeWords(str);
+            // string[] words = new string[]{"SIX","SEVEN","SEVEN"};
+            // string result = "TWENTY";
 
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            IsSolvable(words, result);
-            UnityEngine.Debug.Log(sw.ElapsedMilliseconds);
-            UnityEngine.Debug.Log(count);
+            // Stopwatch sw = new Stopwatch();
+            // sw.Start();
+            // IsSolvable(words, result);
+            // UnityEngine.Debug.Log(sw.ElapsedMilliseconds);
+            // UnityEngine.Debug.Log(count);
 
-            int[] arr = new int[3];
+            // int[] arr = new int[3];
             
-            Array.Sort(arr, new IntCompare());
+            // Array.Sort(arr, new IntCompare());
 
-            AssetBundle ab = AssetBundle.LoadFromFile("");
-            ab.LoadAssetAsync("name");
+            // AssetBundle ab = AssetBundle.LoadFromFile("");
+            // ab.LoadAssetAsync("name");
         }
 
         public class IntCompare : IComparer<int>
@@ -125,6 +128,70 @@ public class Test : MonoBehaviour {
             
             return false;
         }
+
+        public string ArrangeWords(string text) {
+        string[] strs = text.Split(' ');
+        temp = new string[strs.Length];
+        MergeSort(strs, 0, strs.Length - 1);
+        
+        StringBuilder sb = new StringBuilder();
+        
+        TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
+        strs[0] = ti.ToTitleCase(strs[0]);
+        
+        for (int i = 0; i < strs.Length; i++){
+            if (i == 0){
+                sb.Append(strs[i]);
+            }else{
+                sb.Append(strs[i].ToLower());
+            }
+            
+            sb.Append(' ');
+        }
+        
+        sb.Length = sb.Length - 1;
+        return sb.ToString();
+    }
+    
+    public string[] temp;
+
+    public void MergeSort(string[] arr, int left, int right){
+        if (left >= right){
+            return ;
+        }
+
+        int mid = left + (right - left) / 2;
+        MergeSort(arr, left, mid);
+        MergeSort(arr, mid + 1, right);
+
+        Merge(arr, left, mid, right);
+    }
+
+    public void Merge(string[] arr, int left, int mid, int right){
+        int index = 0;
+        int temp_left = left;
+        int temp_mid = mid + 1;
+        while (temp_left <= mid && temp_mid <= right){
+            if (arr[temp_left].Length < arr[temp_mid].Length){
+                temp[index++] = arr[temp_left++];
+            }else {
+                temp[index++] = arr[temp_mid++];
+            }
+        }
+
+        while (temp_left <= mid){
+            temp[index++] = arr[temp_left++];
+        }
+
+        while (temp_mid <= right){
+            temp[index++] = arr[temp_mid++];
+        }
+
+        index = 0;
+        for (int i = left; i <= right; i++){
+            arr[i] = temp[index++];
+        }
+    }
 
     //     public bool IsSolvable(string[] words, string result)
     // {

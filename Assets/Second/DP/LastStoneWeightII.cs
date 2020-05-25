@@ -51,6 +51,9 @@ public class LastStoneWeightII : MonoBehaviour {
     /**
     技巧：类似于把这个数组分成两个子数组，两个子数组的和分别为S1和S2
     求S1 - S2的最小值
+
+    dp[i, j] 的意思是前j个石头是否可以达成和为i。
+    这样只要从sum / 2 + 1 到0找到最大的那个和res，然后sum - 2 * res就是答案。
      */
     public int LastStoneWeightII__(int[] stones) {
         int sum = 0;
